@@ -144,11 +144,11 @@ const clientMarks = [
               <div class="slide-content-wrap">
                 <div class="container">
                   <div class="slide-text">
-                    <h1 class="wow animate__animated animate__fadeInUp">Advanced <strong>technology</strong></h1>
-                    <p class="wow animate__animated animate__fadeInUp animate__delay-1s">
+                    <h1>Advanced <strong>technology</strong></h1>
+                    <p>
                       Last ask him cold feel met spot shy want. Children me laughing we prospect answered followed. At it went is song that held help face. Repair summer one winter living feebly pretty his.
                     </p>
-                    <div class="slide-btns wow animate__animated animate__fadeInUp animate__delay-2s">
+                    <div class="slide-btns">
                       <a class="theme-btn" href="#portfolio">View Projects <i class="fas fa-arrow-right"></i></a>
                       <button class="video-play-btn video-play" data-video="https://www.youtube.com/embed/9Y7ma241N8k" aria-label="Play video"><i class="fas fa-play"></i></button>
                     </div>
@@ -163,11 +163,11 @@ const clientMarks = [
               <div class="slide-content-wrap">
                 <div class="container">
                   <div class="slide-text">
-                    <h1 class="wow animate__animated animate__fadeInUp">Advanced <strong>Machinery</strong></h1>
-                    <p class="wow animate__animated animate__fadeInUp animate__delay-1s">
+                    <h1>Advanced <strong>Machinery</strong></h1>
+                    <p>
                       Last ask him cold feel met spot shy want. Children me laughing we prospect answered followed. At it went is song that held help face. Repair summer one winter living feebly pretty his.
                     </p>
-                    <div class="slide-btns wow animate__animated animate__fadeInUp animate__delay-2s">
+                    <div class="slide-btns">
                       <a class="theme-btn" href="#portfolio">View Projects <i class="fas fa-arrow-right"></i></a>
                       <button class="video-play-btn video-play" data-video="https://www.youtube.com/embed/9Y7ma241N8k" aria-label="Play video"><i class="fas fa-play"></i></button>
                     </div>
@@ -345,11 +345,9 @@ const clientMarks = [
                   </div>
                 ))}
               </div>
-              <div class="portfolio-controls">
-                <button class="swiper-button-prev portfolio-prev" aria-label="Previous work"><i class="fas fa-chevron-left"></i></button>
-                <button class="swiper-button-next portfolio-next" aria-label="Next work"><i class="fas fa-chevron-right"></i></button>
-              </div>
             </div>
+            <button class="swiper-button-prev portfolio-prev" aria-label="Previous work"><i class="fas fa-chevron-left"></i></button>
+            <button class="swiper-button-next portfolio-next" aria-label="Next work"><i class="fas fa-chevron-right"></i></button>
           </div>
         </div>
       </section>
@@ -392,11 +390,9 @@ const clientMarks = [
                   </div>
                 ))}
               </div>
-              <div class="team-controls">
-                <button class="swiper-button-prev team-prev" aria-label="Previous team member"><i class="fas fa-chevron-left"></i></button>
-                <button class="swiper-button-next team-next" aria-label="Next team member"><i class="fas fa-chevron-right"></i></button>
-              </div>
             </div>
+            <button class="swiper-button-prev team-prev" aria-label="Previous team member"><i class="fas fa-chevron-left"></i></button>
+            <button class="swiper-button-next team-next" aria-label="Next team member"><i class="fas fa-chevron-right"></i></button>
           </div>
         </div>
         <div class="fixed-shape" aria-hidden="true">
@@ -437,7 +433,10 @@ const clientMarks = [
                       </div>
                     ))}
                   </div>
-                  <div class="testimonial-pagination"></div>
+                  <div class="testimonial-controls">
+                    <button class="swiper-button-prev testimonial-prev" aria-label="Previous review"><i class="fas fa-angle-left"></i></button>
+                    <button class="swiper-button-next testimonial-next" aria-label="Next review"><i class="fas fa-angle-right"></i></button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -668,8 +667,9 @@ const clientMarks = [
 
       new Swiper('.testimonials-carousel', {
         slidesPerView: 1,
+        loop: false,
         autoplay: { delay: 6000, disableOnInteraction: false },
-        pagination: { el: '.testimonial-pagination', clickable: true },
+        navigation: { nextEl: '.testimonial-next', prevEl: '.testimonial-prev' },
       });
 
       new Swiper('.clients-carousel', {
@@ -1207,6 +1207,66 @@ const clientMarks = [
         max-width: 680px;
       }
 
+      .slide-text h1,
+      .slide-text p,
+      .slide-btns {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .swiper-slide-active .slide-text h1 {
+        animation: slideInDown 800ms ease both;
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .swiper-slide-active .slide-text p {
+        animation: slideInRight 800ms ease both;
+        animation-delay: 200ms;
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .swiper-slide-active .slide-text .slide-btns {
+        animation: slideInUp 800ms ease both;
+        animation-delay: 400ms;
+        opacity: 1;
+        visibility: visible;
+      }
+
+      @keyframes slideInDown {
+        from {
+          transform: translateY(-40px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideInRight {
+        from {
+          transform: translateX(40px);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideInUp {
+        from {
+          transform: translateY(40px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
       .slide-text h1 {
         font-family: var(--font-display);
         font-size: clamp(40px, 8vw, 75px);
@@ -1686,34 +1746,56 @@ const clientMarks = [
         letter-spacing: 0.5px;
       }
 
-      .portfolio-controls {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        margin-top: 30px;
+      .portfolio-box {
+        position: relative;
       }
 
       .portfolio-prev,
       .portfolio-next {
-        position: static;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
         width: 44px;
         height: 44px;
-        background-color: rgba(255, 255, 255, 0.08);
+        background: transparent;
         border: 0;
-        color: var(--white);
-        font-size: 14px;
+        color: var(--yellow);
+        font-size: 30px;
+        cursor: pointer;
+        z-index: 10;
         margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 250ms ease;
+      }
+
+      .portfolio-prev {
+        left: -50px;
+      }
+
+      .portfolio-next {
+        right: -50px;
       }
 
       .portfolio-prev:hover,
       .portfolio-next:hover {
-        background-color: var(--yellow);
-        color: var(--black);
+        color: var(--white);
       }
 
       .portfolio-prev::after,
       .portfolio-next::after {
         display: none;
+      }
+
+      @media (max-width: 1200px) {
+        .portfolio-prev {
+          left: 10px;
+        }
+        .portfolio-next {
+          right: 10px;
+        }
       }
 
       /* Team Section */
@@ -1824,35 +1906,57 @@ const clientMarks = [
         color: var(--yellow);
       }
 
-      .team-controls {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        margin-top: 30px;
+      .team-items {
+        position: relative;
+        margin-top: 50px;
       }
 
       .team-prev,
       .team-next {
-        position: static;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
         width: 44px;
         height: 44px;
-        background-color: var(--paper);
-        border: 1px solid var(--line);
-        color: var(--ink);
-        font-size: 14px;
+        background: transparent;
+        border: 0;
+        color: var(--yellow);
+        font-size: 30px;
+        cursor: pointer;
+        z-index: 10;
         margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 250ms ease;
+      }
+
+      .team-prev {
+        left: -50px;
+      }
+
+      .team-next {
+        right: -50px;
       }
 
       .team-prev:hover,
       .team-next:hover {
-        background-color: var(--yellow);
         color: var(--black);
-        border-color: var(--yellow);
       }
 
       .team-prev::after,
       .team-next::after {
         display: none;
+      }
+
+      @media (max-width: 1200px) {
+        .team-prev {
+          left: 10px;
+        }
+        .team-next {
+          right: 10px;
+        }
       }
 
       .team-area .fixed-shape {
@@ -1933,29 +2037,41 @@ const clientMarks = [
         letter-spacing: 0.5px;
       }
 
-      .testimonial-pagination {
-        display: flex;
-        justify-content: flex-start;
-        gap: 8px;
+      .testimonial-controls {
+        text-align: left;
         margin-top: 30px;
+        margin-left: 5px;
+        margin-bottom: -8px;
+        display: flex;
+        gap: 15px;
       }
 
-      :global(.testimonial-pagination .swiper-pagination-bullet) {
-        width: 15px !important;
-        height: 15px !important;
-        background-color: var(--yellow) !important;
-        opacity: 0.4 !important;
-        border-radius: 999px !important;
-        margin: 0 !important;
-        transition: all 250ms ease !important;
+      .testimonial-prev,
+      .testimonial-next {
+        position: static;
+        background: transparent;
+        border: 0;
+        color: var(--ink);
+        font-size: 24px;
+        margin: 0;
+        padding: 0;
+        cursor: pointer;
+        width: auto;
+        height: auto;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 250ms ease;
       }
 
-      :global(.testimonial-pagination .swiper-pagination-bullet-active) {
-        opacity: 1 !important;
-        background-color: var(--white) !important;
-        border: 4px solid var(--yellow) !important;
-        box-shadow: 0 0 0 1px rgba(255, 182, 6, 0.2) !important;
-        box-sizing: border-box !important;
+      .testimonial-prev:hover,
+      .testimonial-next:hover {
+        color: var(--yellow);
+      }
+
+      .testimonial-prev::after,
+      .testimonial-next::after {
+        display: none;
       }
 
       /* Blog Area */
