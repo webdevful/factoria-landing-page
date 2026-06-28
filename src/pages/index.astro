@@ -362,37 +362,33 @@ const clientMarks = [
               Delightful unreserved impossible few estimating men favourable see entreaties. She propriety immediate was improving. He or entrance humoured likewise moderate. Much nor game son say feel. Fat make met can must form into gate.
             </p>
           </div>
-          <div class="team-items">
-            <div class="swiper team-carousel">
-              <div class="swiper-wrapper">
-                {teamItems.map((item) => (
-                  <div class="swiper-slide">
-                    <div class="team-item">
-                      <div class="thumb">
-                        <img src={item.image} alt={item.name} />
-                        <div class="info">
-                          <h4>{item.name}</h4>
-                          <span>{item.role}</span>
-                        </div>
-                        <div class="overlay text-light">
-                          <h4>{item.name}</h4>
-                          <p>{item.text}</p>
-                        </div>
+          <div class="team-items text-center">
+            <div class="row">
+              {teamItems.map((item) => (
+                <div class="col-lg-4 col-md-6 single-item">
+                  <div class="team-item">
+                    <div class="thumb">
+                      <img src={item.image} alt={item.name} />
+                      <div class="info">
+                        <h4>{item.name}</h4>
+                        <span>{item.role}</span>
                       </div>
-                      <div class="social">
-                        <ul>
-                          <li><a href="#team" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-                          <li><a href="#team" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a></li>
-                          <li><a href="#team" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
-                        </ul>
+                      <div class="overlay text-light">
+                        <h4>{item.name}</h4>
+                        <p>{item.text}</p>
                       </div>
                     </div>
+                    <div class="social">
+                      <ul>
+                        <li><a href="#team" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#team" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a></li>
+                        <li><a href="#team" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                      </ul>
+                    </div>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
-            <button class="team-prev" aria-label="Previous team member"><i class="fas fa-angle-left"></i></button>
-            <button class="team-next" aria-label="Next team member"><i class="fas fa-angle-right"></i></button>
           </div>
         </div>
         <div class="fixed-shape" aria-hidden="true">
@@ -651,17 +647,6 @@ const clientMarks = [
         navigation: { nextEl: '.portfolio-next', prevEl: '.portfolio-prev' },
         breakpoints: {
           1000: { slidesPerView: 2 },
-        },
-      });
-
-      new Swiper('.team-carousel', {
-        slidesPerView: 1,
-        spaceBetween: 30,
-        autoplay: { delay: 5000, disableOnInteraction: false },
-        navigation: { nextEl: '.team-next', prevEl: '.team-prev' },
-        breakpoints: {
-          768: { slidesPerView: 2 },
-          1024: { slidesPerView: 3 },
         },
       });
 
@@ -1350,6 +1335,11 @@ const clientMarks = [
         display: none !important;
       }
 
+      :global(.swiper-button-prev::after),
+      :global(.swiper-button-next::after) {
+        display: none !important;
+      }
+
       /* About Section */
       .about-area {
         background-color: var(--white);
@@ -1927,53 +1917,7 @@ const clientMarks = [
         margin-top: 50px;
       }
 
-      .team-prev,
-      .team-next {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 44px;
-        height: 44px;
-        background: transparent;
-        border: 0;
-        color: var(--yellow);
-        font-size: 30px;
-        cursor: pointer;
-        z-index: 10;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 250ms ease;
-      }
 
-      .team-prev {
-        left: -50px;
-      }
-
-      .team-next {
-        right: -50px;
-      }
-
-      .team-prev:hover,
-      .team-next:hover {
-        color: var(--black);
-      }
-
-      .team-prev::after,
-      .team-next::after {
-        display: none !important;
-      }
-
-      @media (max-width: 1200px) {
-        .team-prev {
-          left: 10px;
-        }
-        .team-next {
-          right: 10px;
-        }
-      }
 
       .team-area .fixed-shape {
         position: absolute;
