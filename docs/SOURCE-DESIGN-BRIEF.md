@@ -1,4 +1,4 @@
-# Forge Line Source Design Brief
+# Factoria Source Design Brief
 
 Source label: Fatory by ValidThemes via Envato Elements.
 
@@ -26,6 +26,6 @@ Fresh source capture:
 ## Intentional Adaptations
 
 - Source photos were replaced with local Unsplash photographic assets.
-- Source logo was replaced by WLFS Forge Line identity.
+- Source logo was replaced by WLFS Factoria identity.
 - Source jQuery/Owl Carousel runtime was modernized to Swiper while preserving slide counts, loop behavior, navigation/dots, and responsive visible counts.
 - Source Owl dots and arrows are globally styled to match the generated runtime DOM.

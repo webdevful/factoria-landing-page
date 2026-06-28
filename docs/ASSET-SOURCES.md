@@ -1,4 +1,4 @@
-# Forge Line Asset Sources
+# Factoria Asset Sources
 
 ## WLFS Identity
 
@@ -13,7 +13,7 @@
 Generated with:
 
 ```bash
-python3 /Volumes/WDF-NAS-01/04-Projects/Internal-Projects/Codebases/webdevful-astro-main/tools/generate_logos.py --template-name "Forge Line" --allow-name-override --output-dir public/assets/brand
+python3 /Volumes/WDF-NAS-01/04-Projects/Internal-Projects/Codebases/webdevful-astro-main/tools/generate_logos.py --template-name "Factoria" --allow-name-override --output-dir public/assets/brand
 ```
 
 ## Photographic Slots
