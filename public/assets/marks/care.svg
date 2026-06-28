@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title desc">
+  <title id="title">Care mark</title>
+  <desc id="desc">Approved text-only care placeholder mark.</desc>
+  <circle cx="60" cy="60" r="48" fill="#f7f2e9" stroke="#d6a354" stroke-width="6"/>
+  <path d="M60 82s-24-14-24-32c0-10 7-17 16-17 5 0 9 2 12 6 3-4 7-6 12-6 9 0 16 7 16 17 0 18-32 32-32 32z" fill="#8d733d"/>
+  <text x="60" y="99" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#282624">CARE</text>
+</svg>

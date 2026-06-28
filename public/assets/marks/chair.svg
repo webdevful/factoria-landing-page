@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title desc">
+  <title id="title">Chair mark</title>
+  <desc id="desc">Approved text-only chair placeholder mark.</desc>
+  <circle cx="60" cy="60" r="48" fill="#f7f2e9" stroke="#d6a354" stroke-width="6"/>
+  <path d="M42 34h36v30H42zM48 64h24v18H48zM38 86h44" fill="none" stroke="#8d733d" stroke-width="8" stroke-linejoin="round"/>
+  <text x="60" y="99" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#282624">CHAIR</text>
+</svg>

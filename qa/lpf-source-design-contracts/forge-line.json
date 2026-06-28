@@ -1,0 +1,101 @@
+{
+  "slug": "forge-line",
+  "sourceUrl": "https://validthemes.net/site-template/fatory/?storefront=envato-elements",
+  "sourceCapture": "/Volumes/WDF-NAS-01/04-Projects/Internal-Projects/Codebases/webdevful-astro-main/captures/validthemes-net-site-template-fatory/desktop",
+  "requiredSections": [
+    "header-top",
+    "main-navigation",
+    "hero-area",
+    "about-area",
+    "work-with-us-area",
+    "services-area",
+    "work-process-area",
+    "portfolio-area",
+    "team-area",
+    "testimonial-area",
+    "blog-area",
+    "main-footer"
+  ],
+  "blockingSourceChecks": [
+    {
+      "name": "source header topology",
+      "requiredSelectors": [".header-top", ".navbar-header", ".navbar-collapse"],
+      "forbiddenDrift": ["missing contact topbar", "incorrect logo layout"]
+    },
+    {
+      "name": "source icon roles",
+      "requiredPackage": "@fortawesome/fontawesome-free",
+      "requiredSelectors": [".fa-phone", ".fa-envelope", ".fa-map-marker-alt"],
+      "forbiddenDrift": ["missing contact icons", "generic placeholder indicators"]
+    }
+  ],
+  "sliderChecks": [
+    {
+      "selector": ".services-carousel",
+      "sourceLibrary": "Owl Carousel",
+      "implementation": "Swiper",
+      "slidesPerViewDesktop": 3,
+      "slidesPerViewTablet": 2,
+      "slidesPerViewMobile": 1,
+      "dots": true,
+      "loop": false
+    },
+    {
+      "selector": ".portfolio-carousel",
+      "sourceLibrary": "Owl Carousel",
+      "implementation": "Swiper",
+      "slidesPerViewDesktop": 2,
+      "slidesPerViewTablet": 1,
+      "slidesPerViewMobile": 1,
+      "arrows": true,
+      "loop": false
+    },
+    {
+      "selector": ".team-carousel",
+      "sourceLibrary": "Owl Carousel",
+      "implementation": "Swiper",
+      "slidesPerViewDesktop": 3,
+      "slidesPerViewTablet": 2,
+      "slidesPerViewMobile": 1,
+      "arrows": true,
+      "loop": false
+    },
+    {
+      "selector": ".testimonials-carousel",
+      "sourceLibrary": "Owl Carousel",
+      "implementation": "Swiper",
+      "slidesPerViewDesktop": 1,
+      "slidesPerViewMobile": 1,
+      "arrows": true,
+      "loop": false
+    }
+  ],
+  "globalControls": [
+    {
+      "selector": ".scroll-to-target",
+      "behavior": "scrolls to top",
+      "size": "50px"
+    }
+  ],
+  "logoStripChecks": {
+    "selector": ".clients-items",
+    "sourceCount": 3,
+    "finalCount": 6,
+    "sourceGeometry": "approximately 83px circular marks in a carousel",
+    "finalTreatment": "approved text-only SVG media marks",
+    "requiredPackage": "@fortawesome/fontawesome-free",
+    "forbidWlfsOutput": true,
+    "forbidWorkerAuthoredMarks": true
+  },
+  "assetPolicy": {
+    "logo": "WLFS identity slots only",
+    "photos": "local Unsplash JPEG downloads for photo-shaped source slots",
+    "sponsorMarks": "text-only SVG media proof marks",
+    "sourceTemplateAssetsShipped": false
+  },
+  "validationEvidence": [
+    "docs/agent-runs/forge-line-desktop-fullpage.png",
+    "docs/agent-runs/forge-line-tablet-fullpage.png",
+    "docs/agent-runs/forge-line-mobile-fullpage.png"
+  ]
+}
