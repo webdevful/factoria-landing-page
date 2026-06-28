@@ -177,8 +177,8 @@ const clientMarks = [
             </div>
           </div>
           <!-- Slider Navigation -->
-          <button class="swiper-button-prev hero-prev" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></button>
-          <button class="swiper-button-next hero-next" aria-label="Next slide"><i class="fas fa-chevron-right"></i></button>
+          <button class="hero-prev" aria-label="Previous slide"><i class="fas fa-angle-left"></i></button>
+          <button class="hero-next" aria-label="Next slide"><i class="fas fa-angle-right"></i></button>
         </div>
       </section>
 
@@ -346,8 +346,8 @@ const clientMarks = [
                 ))}
               </div>
             </div>
-            <button class="swiper-button-prev portfolio-prev" aria-label="Previous work"><i class="fas fa-chevron-left"></i></button>
-            <button class="swiper-button-next portfolio-next" aria-label="Next work"><i class="fas fa-chevron-right"></i></button>
+            <button class="portfolio-prev" aria-label="Previous work"><i class="fas fa-angle-left"></i></button>
+            <button class="portfolio-next" aria-label="Next work"><i class="fas fa-angle-right"></i></button>
           </div>
         </div>
       </section>
@@ -391,8 +391,8 @@ const clientMarks = [
                 ))}
               </div>
             </div>
-            <button class="swiper-button-prev team-prev" aria-label="Previous team member"><i class="fas fa-chevron-left"></i></button>
-            <button class="swiper-button-next team-next" aria-label="Next team member"><i class="fas fa-chevron-right"></i></button>
+            <button class="team-prev" aria-label="Previous team member"><i class="fas fa-angle-left"></i></button>
+            <button class="team-next" aria-label="Next team member"><i class="fas fa-angle-right"></i></button>
           </div>
         </div>
         <div class="fixed-shape" aria-hidden="true">
@@ -434,8 +434,8 @@ const clientMarks = [
                     ))}
                   </div>
                   <div class="testimonial-controls">
-                    <button class="swiper-button-prev testimonial-prev" aria-label="Previous review"><i class="fas fa-angle-left"></i></button>
-                    <button class="swiper-button-next testimonial-next" aria-label="Next review"><i class="fas fa-angle-right"></i></button>
+                    <button class="testimonial-prev" aria-label="Previous review"><i class="fas fa-angle-left"></i></button>
+                    <button class="testimonial-next" aria-label="Next review"><i class="fas fa-angle-right"></i></button>
                   </div>
                 </div>
               </div>
@@ -650,7 +650,7 @@ const clientMarks = [
         autoplay: { delay: 5000, disableOnInteraction: false },
         navigation: { nextEl: '.portfolio-next', prevEl: '.portfolio-prev' },
         breakpoints: {
-          768: { slidesPerView: 2 },
+          1000: { slidesPerView: 2 },
         },
       });
 
@@ -677,8 +677,8 @@ const clientMarks = [
         spaceBetween: 30,
         autoplay: { delay: 4000, disableOnInteraction: false },
         breakpoints: {
-          600: { slidesPerView: 4 },
-          1024: { slidesPerView: 6 },
+          600: { slidesPerView: 2 },
+          1000: { slidesPerView: 3 },
         },
       });
 
@@ -1314,24 +1314,35 @@ const clientMarks = [
 
       .hero-prev,
       .hero-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 50px;
         height: 50px;
         background-color: rgba(255, 255, 255, 0.1);
         border: 0;
         color: var(--white);
-        font-size: 16px;
+        font-size: 20px;
         transition: all 250ms ease;
+      }
+
+      .hero-prev {
+        left: 30px;
+      }
+
+      .hero-next {
+        right: 30px;
       }
 
       .hero-prev:hover,
       .hero-next:hover {
         background-color: var(--yellow);
         color: var(--black);
-      }
-
-      .hero-prev::after,
-      .hero-next::after {
-        display: none;
       }
 
       /* About Section */
