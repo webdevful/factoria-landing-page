@@ -1345,6 +1345,11 @@ const clientMarks = [
         color: var(--black);
       }
 
+      .hero-prev::after,
+      .hero-next::after {
+        display: none !important;
+      }
+
       /* About Section */
       .about-area {
         background-color: var(--white);
@@ -1797,7 +1802,7 @@ const clientMarks = [
 
       .portfolio-prev::after,
       .portfolio-next::after {
-        display: none;
+        display: none !important;
       }
 
       @media (max-width: 1200px) {
@@ -1958,7 +1963,7 @@ const clientMarks = [
 
       .team-prev::after,
       .team-next::after {
-        display: none;
+        display: none !important;
       }
 
       @media (max-width: 1200px) {
@@ -2082,7 +2087,7 @@ const clientMarks = [
 
       .testimonial-prev::after,
       .testimonial-next::after {
-        display: none;
+        display: none !important;
       }
 
       /* Blog Area */
