@@ -3,15 +3,6 @@ import 'swiper/css/bundle';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'animate.css/animate.min.css';
 
-const navItems = [
-  ['Home', '#top'],
-  ['About', '#about'],
-  ['Services', '#services'],
-  ['Portfolio', '#portfolio'],
-  ['Team', '#team'],
-  ['Blog', '#blog'],
-  ['Contact', '#footer-contact'],
-];
 
 const serviceTabs = [
   { id: 'construction', label: 'Construction', title: 'Construction of public works based on general planning, instruction, and control', image: '/assets/photos/service-1.jpg' },
@@ -108,9 +99,90 @@ const clientMarks = [
 
         <nav class="main-menu" id="navbar-menu">
           <ul class="navigation">
-            {navItems.map(([label, href]) => (
-              <li><a href={href}>{label}</a></li>
-            ))}
+            <li class="dropdown">
+              <a href="#top">Home <i class="fas fa-angle-down"></i></a>
+              <ul class="dropdown-menu">
+                <li><a href="#top">Home Version One</a></li>
+                <li><a href="#top">Home Version Two</a></li>
+                <li><a href="#top">Home Version Three</a></li>
+                <li><a href="#top">Home Version Four</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#about">Pages <i class="fas fa-angle-down"></i></a>
+              <ul class="dropdown-menu">
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#footer-contact">Contact Us</a></li>
+                <li><a href="#top">Faq</a></li>
+                <li><a href="#top">Error Page</a></li>
+              </ul>
+            </li>
+            <li class="dropdown megamenu-fw">
+              <a href="#portfolio">Projects <i class="fas fa-angle-down"></i></a>
+              <div class="dropdown-menu megamenu-content">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-menu col-lg-3 col-md-6">
+                      <h6 class="title">Masonary Colum</h6>
+                      <ul class="menu-col">
+                        <li><a href="#portfolio">Masonary Two Colums</a></li>
+                        <li><a href="#portfolio">Masonary Three Colums</a></li>
+                        <li><a href="#portfolio">Masonary Four Colums</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-menu col-lg-3 col-md-6">
+                      <h6 class="title">Grid Colum</h6>
+                      <ul class="menu-col">
+                        <li><a href="#portfolio">Grid Two Colums</a></li>
+                        <li><a href="#portfolio">Grid Three Colums</a></li>
+                        <li><a href="#portfolio">Grid Four Colums</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-menu col-lg-3 col-md-6">
+                      <h6 class="title">Additional Version</h6>
+                      <ul class="menu-col">
+                        <li><a href="#portfolio">Project Carousel</a></li>
+                        <li><a href="#portfolio">Project Details</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-menu col-lg-3 col-md-6">
+                      <h6 class="title">Additional Pages</h6>
+                      <ul class="menu-col">
+                        <li><a href="#top">Login</a></li>
+                        <li><a href="#top">Register</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="dropdown">
+              <a href="#services">Services <i class="fas fa-angle-down"></i></a>
+              <ul class="dropdown-menu">
+                <li><a href="#services">Services Version One</a></li>
+                <li><a href="#services">Services Version Two</a></li>
+                <li><a href="#services">Services Version Three</a></li>
+                <li><a href="#services">Services Details</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#team">Team <i class="fas fa-angle-down"></i></a>
+              <ul class="dropdown-menu">
+                <li><a href="#team">Team Grid</a></li>
+                <li><a href="#team">Team Carousel</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#blog">Blog <i class="fas fa-angle-down"></i></a>
+              <ul class="dropdown-menu">
+                <li><a href="#blog">Blog Standard</a></li>
+                <li><a href="#blog">Blog With Sidebar</a></li>
+                <li><a href="#blog">Blog Grid Two Colum</a></li>
+                <li><a href="#blog">Blog Grid Three Colum</a></li>
+                <li><a href="#blog">Blog Single</a></li>
+              </ul>
+            </li>
+            <li><a href="#footer-contact">Contact Us</a></li>
           </ul>
         </nav>
 
@@ -721,8 +793,23 @@ const clientMarks = [
         mainMenu?.classList.toggle('is-open', !expanded);
       });
 
+      // Mobile Dropdowns Toggle
+      document.querySelectorAll('.dropdown > a').forEach((toggle) => {
+        toggle.addEventListener('click', (e) => {
+          if (window.innerWidth <= 1024) {
+            e.preventDefault();
+            const parent = toggle.parentElement;
+            parent?.classList.toggle('open');
+          }
+        });
+      });
+
       document.querySelectorAll('.main-menu a').forEach((link) => {
-        link.addEventListener('click', () => {
+        link.addEventListener('click', (e) => {
+          // If this is a dropdown toggle on mobile, do not close the main mobile menu
+          if (window.innerWidth <= 1024 && link.parentElement?.classList.contains('dropdown') && link.nextElementSibling?.classList.contains('dropdown-menu')) {
+            return;
+          }
           menuToggle?.setAttribute('aria-expanded', 'false');
           mainMenu?.classList.remove('is-open');
         });
@@ -990,6 +1077,7 @@ const clientMarks = [
         grid-template-columns: auto 1fr auto;
         align-items: center;
         padding: 15px 15px;
+        position: relative;
       }
 
       .logo-scrolled {
@@ -1065,6 +1153,125 @@ const clientMarks = [
 
       .navigation a:hover::after {
         width: 100%;
+      }
+
+      .dropdown {
+        position: relative;
+      }
+
+      .dropdown > a i {
+        margin-left: 5px;
+        font-size: 11px;
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 220px;
+        background-color: var(--white);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        list-style: none;
+        padding: 15px 0;
+        margin: 0;
+        border-radius: 4px;
+        z-index: 99;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(15px);
+        transition: all 300ms ease;
+        display: block;
+      }
+
+      @media (min-width: 1024px) {
+        .dropdown:hover > .dropdown-menu {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
+      }
+
+      .dropdown.open > .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .dropdown-menu li {
+        padding: 0;
+        border: 0 !important;
+      }
+
+      .dropdown-menu li a {
+        display: block;
+        padding: 8px 20px !important;
+        color: var(--ink) !important;
+        text-transform: capitalize !important;
+        font-weight: 500 !important;
+        font-size: 14px !important;
+        letter-spacing: 0px !important;
+        transition: all 200ms ease;
+      }
+
+      .dropdown-menu li a::after {
+        display: none !important;
+      }
+
+      .dropdown-menu li a:hover {
+        background-color: #f8f9fa;
+        color: var(--yellow) !important;
+        padding-left: 25px !important;
+      }
+
+      .megamenu-fw {
+        position: static !important;
+      }
+
+      .megamenu-fw > .dropdown-menu {
+        left: 15px;
+        right: 15px;
+        width: calc(100% - 30px);
+        padding: 30px 20px;
+      }
+
+      .col-menu {
+        border-right: 1px solid #eee;
+        padding: 0 20px;
+      }
+
+      .col-menu:last-child {
+        border-right: 0;
+      }
+
+      .col-menu .title {
+        font-family: var(--font-display);
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: var(--black);
+        margin-bottom: 15px;
+        letter-spacing: 0.5px;
+      }
+
+      .menu-col {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .menu-col li a {
+        display: block;
+        padding: 6px 0 !important;
+        color: var(--ink-soft) !important;
+        font-weight: 500 !important;
+        font-size: 13px !important;
+        transition: all 200ms ease;
+      }
+
+      .menu-col li a:hover {
+        background-color: transparent !important;
+        color: var(--yellow) !important;
+        padding-left: 5px !important;
       }
 
       .attr-nav {
@@ -2427,6 +2634,73 @@ const clientMarks = [
         .navigation a {
           display: block;
           padding: 12px 0;
+        }
+
+        .dropdown-menu {
+          position: static !important;
+          opacity: 1 !important;
+          visibility: visible !important;
+          transform: none !important;
+          box-shadow: none !important;
+          background-color: transparent !important;
+          padding: 0 !important;
+          display: none;
+          border-left: 2px solid var(--yellow);
+          margin-left: 15px !important;
+          border-radius: 0 !important;
+        }
+
+        .dropdown.open > .dropdown-menu {
+          display: block !important;
+        }
+
+        .dropdown-menu li a {
+          color: rgba(255, 255, 255, 0.7) !important;
+          padding: 8px 15px !important;
+        }
+
+        .dropdown-menu li a:hover {
+          color: var(--yellow) !important;
+          background-color: transparent !important;
+          padding-left: 15px !important;
+        }
+
+        /* Megamenu mobile styles */
+        .megamenu-fw > .dropdown-menu {
+          padding: 0 !important;
+        }
+
+        .megamenu-fw .row {
+          display: flex;
+          flex-direction: column;
+          margin: 0;
+        }
+
+        .col-menu {
+          border-right: 0 !important;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+          padding: 10px 0 !important;
+        }
+
+        .col-menu:last-child {
+          border-bottom: 0;
+        }
+
+        .col-menu .title {
+          color: var(--white) !important;
+          font-size: 13px !important;
+          margin-bottom: 8px !important;
+          padding-left: 15px;
+        }
+
+        .menu-col li a {
+          color: rgba(255, 255, 255, 0.7) !important;
+          padding: 6px 15px 6px 25px !important;
+        }
+
+        .menu-col li a:hover {
+          color: var(--yellow) !important;
+          padding-left: 25px !important;
         }
 
         .about-grid,
