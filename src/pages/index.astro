@@ -739,23 +739,29 @@ const clientMarks = [
         },
       });
 
-      // Simple Counter Animation
+      // High-Performance Counter Animation
       const animateCounters = () => {
         const timers = document.querySelectorAll('.timer');
         timers.forEach((timer) => {
           const target = parseInt(timer.getAttribute('data-to') || '0', 10);
           const duration = parseInt(timer.getAttribute('data-speed') || '2000', 10);
-          const stepTime = Math.max(Math.floor(duration / target), 30);
-          let current = 0;
+          const startTime = performance.now();
 
-          const interval = setInterval(() => {
-            current += 1;
-            timer.textContent = String(current);
-            if (current >= target) {
+          const updateCounter = (currentTime) => {
+            const elapsedTime = currentTime - startTime;
+            const progress = Math.min(elapsedTime / duration, 1);
+            const currentValue = Math.floor(progress * target);
+            
+            timer.textContent = String(currentValue);
+
+            if (progress < 1) {
+              requestAnimationFrame(updateCounter);
+            } else {
               timer.textContent = String(target);
-              clearInterval(interval);
             }
-          }, stepTime);
+          };
+
+          requestAnimationFrame(updateCounter);
         });
       };
 
@@ -2654,8 +2660,15 @@ const clientMarks = [
       }
 
       /* Animations override to keep visible on fallbacks */
+      html:not([data-wow-runtime="active"]) .wow {
+        visibility: visible;
+      }
+
+      html[data-wow-runtime="active"] .wow {
+        visibility: hidden;
+      }
+
       .wow {
-        visibility: visible !important;
         animation-duration: 800ms;
       }
 
