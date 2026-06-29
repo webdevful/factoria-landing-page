@@ -12,9 +12,9 @@ const serviceTabs = [
 ];
 
 const processSteps = [
-  { step: '01', title: 'Design', icon: 'fa-solid fa-ruler-combined', text: 'Delightful unreserved impossible few estimating men favourable see entreaties. She propriety immediate was improving. He or entrance humoured likewise moderate. Much nor game son say feel Fat make met.' },
-  { step: '02', title: 'Planning', icon: 'fa-solid fa-compass', text: 'Delightful unreserved impossible few estimating men favourable see entreaties. She propriety immediate was improving. He or entrance humoured likewise moderate. Much nor game son say feel Fat make met.' },
-  { step: '03', title: 'Devolepment', icon: 'fa-solid fa-cubes', text: 'Delightful unreserved impossible few estimating men favourable see entreaties. She propriety immediate was improving. He or entrance humoured likewise moderate. Much nor game son say feel Fat make met.' },
+  { step: '01', title: 'Design', icon: 'flaticon-ruler', text: 'Delightful unreserved impossible few estimating men favourable see entreaties. She propriety immediate was improving. He or entrance humoured likewise moderate. Much nor game son say feel Fat make met.' },
+  { step: '02', title: 'Planning', icon: 'flaticon-creativity', text: 'Delightful unreserved impossible few estimating men favourable see entreaties. She propriety immediate was improving. He or entrance humoured likewise moderate. Much nor game son say feel Fat make met.' },
+  { step: '03', title: 'Devolepment', icon: 'flaticon-house', text: 'Delightful unreserved impossible few estimating men favourable see entreaties. She propriety immediate was improving. He or entrance humoured likewise moderate. Much nor game son say feel Fat make met.' },
 ];
 
 const portfolioItems = [
@@ -893,6 +893,31 @@ const clientMarks = [
 
     <!-- Visual Styles (Vanilla CSS Layout & Theme Tokens) -->
     <style>
+      @font-face {
+        font-family: "Flaticon";
+        src: url("/assets/vendor/flaticon/Flaticon.woff") format("woff"),
+             url("/assets/vendor/flaticon/Flaticon.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+        font-display: block;
+      }
+
+      [class^="flaticon-"]::before, [class*=" flaticon-"]::before {   
+        font-family: "Flaticon" !important;
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .flaticon-ruler::before { content: "\f11b"; }
+      .flaticon-creativity::before { content: "\f112"; }
+      .flaticon-house::before { content: "\f113"; }
+
       :root {
         --yellow: #ffb606;
         --yellow-hover: #e09f00;
