@@ -249,6 +249,10 @@ Validation:
 - Product `npm run design:lint`: PASS with existing warning `No YAML content found`.
 - Local browser footer proof on `http://127.0.0.1:4386/`: PASS. Desktop footer top columns `292.5px 585px 292.5px`, newsletter form `513x62`, button `50x50`, title `22px/600/capitalize`, contact icon `40x40`, and subscribe padding `35px/35px`. Mobile footer stacks to one column, newsletter form `288x62`, button `50x50`, title `22px/600/capitalize`, contact icon `40x40`, and visible `Powered by WebDevful`.
 - Local evidence screenshots: `/tmp/factoria-footer-source-structure-local-desktop.png` and `/tmp/factoria-footer-source-structure-local-mobile.png`.
+- Product repair commit: `4dfa932 Repair Factoria footer source structure`.
+- Product Cloudflare deployment: `https://4b1c7f56.factoria-landing-page.pages.dev` from source `4dfa932`.
+- Public browser footer proof on `https://factoria-landing-page.pages.dev/`: PASS. Desktop footer top columns `292.5px 585px 292.5px`, newsletter form `513x62`, button `50x50`, title `22px/600/capitalize`, contact icon `40x40`, and subscribe padding `35px/35px`. Mobile footer stacks to one column, newsletter form `288x62`, button `50x50`, title `22px/600/capitalize`, contact icon `40x40`, and visible `Powered by WebDevful`.
+- Public evidence screenshots: `/tmp/factoria-footer-source-structure-public-desktop.png` and `/tmp/factoria-footer-source-structure-public-mobile.png`.
 
 ## Testimonial Slider Icon And Quote Placement Return
 
