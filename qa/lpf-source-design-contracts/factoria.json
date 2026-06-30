@@ -7,7 +7,9 @@
     "The social bar is not a loose icon row below the card and does not replace Font Awesome social icons with generated art.",
     "The repeated Fatory section heading pattern uses `.site-heading h2` with Inter, 52px desktop font size, 600 weight, 62.4px line-height, 1px letter spacing, 20px bottom padding, and red divider pseudo-elements under the H2: a 40px line plus a short 5px segment.",
     "The red divider is a source-wide section-title system for repeated centered section headings including Work Process, Portfolio, Team Members, and Blog; it is not a Team-only exception.",
-    "The Fatory Team Members hover does not snap to a fast full-card blackout; member info fades with slower ease-in-out timing while the overlay text slides upward over the darkened image."
+    "The Fatory Team Members hover does not snap to a fast full-card blackout; member info fades with slower ease-in-out timing while the overlay text slides upward over the darkened image.",
+    "The Fatory testimonials section places the faint quote ornament on the left/title-side wrapper pseudo-element `.testimonial-items::after`; it is not rendered behind the right testimonial text.",
+    "The Fatory testimonial carousel nav icons use source-compatible Font Awesome angle markup: `fa fa-angle-left` and `fa fa-angle-right`."
   ],
   "checks": [
     {
@@ -114,6 +116,26 @@
         "align-items": "center",
         "justify-content": "center"
       }
+    },
+    {
+      "selector": ".testimonial-items-wrap",
+      "declarations": {
+        "position": "relative",
+        "z-index": "1"
+      }
+    },
+    {
+      "selector": ".testimonial-items-wrap::after",
+      "declarations": {
+        "content": "\"\\f10d\"",
+        "position": "absolute",
+        "left": "0",
+        "top": "-15px",
+        "font-family": "\"Font Awesome 7 Free\"",
+        "font-weight": "600",
+        "font-size": "100px",
+        "opacity": "0.07"
+      }
     }
   ],
   "forbidden": [
@@ -145,6 +167,12 @@
       "selector": ".team-item .overlay",
       "declarations": {
         "background-color": "rgba(18, 20, 24, 0.92)"
+      }
+    },
+    {
+      "selector": ".testimonial-box::after",
+      "declarations": {
+        "content": "\"\\f10d\""
       }
     }
   ],
@@ -192,6 +220,18 @@
     {
       "path": "src/pages/index.astro",
       "contains": "fab fa-instagram"
+    },
+    {
+      "path": "src/pages/index.astro",
+      "contains": "fa fa-angle-left"
+    },
+    {
+      "path": "src/pages/index.astro",
+      "contains": "fa fa-angle-right"
+    },
+    {
+      "path": "src/pages/index.astro",
+      "contains": ".testimonial-items-wrap::after"
     }
   ]
 }

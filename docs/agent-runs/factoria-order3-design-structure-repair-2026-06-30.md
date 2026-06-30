@@ -217,3 +217,29 @@ Validation:
 - Root `npm run qa:lpf-dispatch-preflight -- --ticket docs/factory-orders/2026-06-30-lpf-repair-factoria-global-heading-typography-loop.md`: PASS. STAMP DPP ticket=2026-06-30-lpf-repair-factoria-global-heading-typography-loop lane=LPF at=2026-06-30 digest=f59f6980.
 - Source-design contract: `LPF_REQUIRE_SOURCE_TYPOGRAPHY=1 LPF_LANDING_PAGE_SLUG=factoria python3 .../tools/check_lpf_conversion_contract.py --project-root .../factoria/repo --landing-page-slug factoria`: PASS.
 - Local browser proof on `http://127.0.0.1:4375/`: PASS. Desktop `services`, `process`, `portfolio`, `team`, and `blog` section H2s render Inter `52px`, weight `600`, line-height `62.4px`, `1px` letter spacing, source red pseudo-divider `40px + 5px`, and block-level eyebrow above title. Mobile keeps Inter, weight `600`, red pseudo-divider, and source order with responsive `32px` headings.
+
+## Testimonial Slider Icon And Quote Placement Return
+
+Owner returned Factoria again on 2026-06-30 because the testimonials slider arrow icons did not match the source, and the faint quote/background ornament was placed on the right testimonial side instead of the left title side.
+
+Source measurements:
+
+- Source Fatory `SLIDER-SPEC.md` records testimonial nav icons as `<i class='fa fa-angle-left'></i>` and `<i class='fa fa-angle-right'></i>`.
+- Source CSS places the faint quote ornament on `.testimonial-items::after` with `left: 0`, `top: -15px`, `content: "\\f10d"`, `font-family: "Font Awesome 7 Free"`, `font-size: 100px`, and `opacity: 0.07`.
+- Source browser inspection confirmed `.testimonial-box::after` has `content: none`; the quote ornament belongs to the left/title-side wrapper, not behind the right testimonial text.
+
+Changes applied:
+
+- Changed testimonial slider icons from `fa-solid fa-angle-left/right` to source-compatible `fa fa-angle-left/right`.
+- Moved the faint quote ornament to `.testimonial-items-wrap::after`, matching the source left-side wrapper placement.
+- Removed `.testimonial-box::after` so the quote no longer renders behind the right testimonial content.
+- Extended `qa/lpf-source-design-contracts/factoria.json` to enforce testimonial quote placement, source icon classes, and forbid the old right-side quote pseudo-element.
+
+Validation:
+
+- Product `npm run build`: PASS.
+- Product `npm run design:lint`: PASS with existing warning: `No YAML content found`.
+- Root `npm run qa:lpf-memory-loop -- --ticket docs/factory-orders/2026-06-30-lpf-repair-factoria-testimonial-slider-icons-quote-placement.md`: PASS. STAMP MLP ticket=2026-06-30-lpf-repair-factoria-testimonial-slider-icons-quote-placement lane=LPF at=2026-06-30 digest=0b263cae.
+- Root `npm run qa:lpf-dispatch-preflight -- --ticket docs/factory-orders/2026-06-30-lpf-repair-factoria-testimonial-slider-icons-quote-placement.md`: PASS. STAMP DPP ticket=2026-06-30-lpf-repair-factoria-testimonial-slider-icons-quote-placement lane=LPF at=2026-06-30 digest=ac7cdc11.
+- Source-design contract: `LPF_REQUIRE_SOURCE_TYPOGRAPHY=1 LPF_LANDING_PAGE_SLUG=factoria python3 .../tools/check_lpf_conversion_contract.py --project-root .../factoria/repo --landing-page-slug factoria`: PASS.
+- Local browser proof on `http://127.0.0.1:4376/`: PASS. Desktop and mobile testimonial controls use `fa fa-angle-left/right`, Font Awesome 7 Free renders the icons, `.testimonial-items-wrap::after` carries the visible quote glyph at `left: 0; top: -15px`, `.testimonial-box::after` is `content: none`, and next/previous controls changed active reviewer `Jones Adhor -> Mones Basel -> Jones Adhor`.
