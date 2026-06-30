@@ -218,6 +218,38 @@ Validation:
 - Source-design contract: `LPF_REQUIRE_SOURCE_TYPOGRAPHY=1 LPF_LANDING_PAGE_SLUG=factoria python3 .../tools/check_lpf_conversion_contract.py --project-root .../factoria/repo --landing-page-slug factoria`: PASS.
 - Local browser proof on `http://127.0.0.1:4375/`: PASS. Desktop `services`, `process`, `portfolio`, `team`, and `blog` section H2s render Inter `52px`, weight `600`, line-height `62.4px`, `1px` letter spacing, source red pseudo-divider `40px + 5px`, and block-level eyebrow above title. Mobile keeps Inter, weight `600`, red pseudo-divider, and source order with responsive `32px` headings.
 
+## Footer Source Structure Return
+
+Owner returned Factoria again on 2026-06-30 because the footer did not match the original Fatory design. The current footer had a tiny rectangular center newsletter/search bar, undersized uppercase footer titles, weaker spacing, loose contact icons, and no visible WebDevful company branding.
+
+Source measurements:
+
+- Fatory footer source uses a dark `#022147` footer with a three-part footer top: logo, centered subscribe form, and phone number.
+- The source subscribe form is a 30px-radius pill with a 60px input, 25px left padding, and a 50px circular paper-plane button inset 5px from the top/right.
+- The source subscribe form column has 35px padding and left/right borders on desktop.
+- Footer widget titles are 22px, 600 weight, capitalized, with 30px bottom spacing.
+- Contact icons sit inside 40px square bordered frames; footer links use triangle markers; opening-hour rows use divided rows.
+
+Changes applied:
+
+- Rebuilt the footer top into the source three-column grid and restored source dark footer color.
+- Repaired the center newsletter/search bar into a prominent source-style pill, including 60px input and 50px circular send icon.
+- Restored footer column typography, contact icon frames, link triangle markers, opening-hour dividers, and footer bottom spacing.
+- Added visible `Powered by WebDevful` company branding in the footer bottom row.
+- Fixed a root selector leak where the mobile header `.logo` grid rule was also affecting the footer logo and making the mobile footer top form tiny.
+- Extended `qa/lpf-source-design-contracts/factoria.json` to enforce the footer source structure, newsletter geometry, footer typography, icon treatment, WebDevful branding, and footer logo grid reset.
+
+Validation:
+
+- Root `npm run qa:lpf-memory-loop -- --ticket docs/factory-orders/2026-06-30-lpf-repair-factoria-footer-source-structure.md`: PASS. STAMP MLP ticket=2026-06-30-lpf-repair-factoria-footer-source-structure lane=LPF at=2026-06-30 digest=c765726f.
+- Root `npm run qa:lpf-dispatch-preflight -- --ticket docs/factory-orders/2026-06-30-lpf-repair-factoria-footer-source-structure.md`: PASS. STAMP DPP ticket=2026-06-30-lpf-repair-factoria-footer-source-structure lane=LPF at=2026-06-30 digest=349aa857.
+- Root `npm run factory:lpf:stopline`: PASS. Factoria remains a page rebuild candidate but no current threshold blocks this footer repair.
+- Source-design contract: PASS.
+- Product `npm run build`: PASS.
+- Product `npm run design:lint`: PASS with existing warning `No YAML content found`.
+- Local browser footer proof on `http://127.0.0.1:4386/`: PASS. Desktop footer top columns `292.5px 585px 292.5px`, newsletter form `513x62`, button `50x50`, title `22px/600/capitalize`, contact icon `40x40`, and subscribe padding `35px/35px`. Mobile footer stacks to one column, newsletter form `288x62`, button `50x50`, title `22px/600/capitalize`, contact icon `40x40`, and visible `Powered by WebDevful`.
+- Local evidence screenshots: `/tmp/factoria-footer-source-structure-local-desktop.png` and `/tmp/factoria-footer-source-structure-local-mobile.png`.
+
 ## Testimonial Slider Icon And Quote Placement Return
 
 Owner returned Factoria again on 2026-06-30 because the testimonials slider arrow icons did not match the source, and the faint quote/background ornament was placed on the right testimonial side instead of the left title side.

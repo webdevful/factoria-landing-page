@@ -14,7 +14,12 @@
     "The testimonial controls must not be clipped by the Swiper viewport; the arrow icon boxes must render fully below the testimonial content with no part hidden by an overflow container.",
     "The Fatory primary CTA taxonomy uses rounded `.btn.circle` controls for hero, testimonial, and Blog card buttons; square CTA treatment is reserved for source buttons that do not carry `.circle`.",
     "The Fatory Blog / Latest News card button is not a text-only `.btn-simple` link; source markup uses `btn circle btn-theme angle effect btn-sm` with a 30px radius and a CSS angle arrow.",
-    "The Fatory Blog cards are white shadow cards with a 4:3 image rhythm, no rounded card shell, no hover lift, 30px content padding, and 50px author avatars with a light red border."
+    "The Fatory Blog cards are white shadow cards with a 4:3 image rhythm, no rounded card shell, no hover lift, 30px content padding, and 50px author avatars with a light red border.",
+    "The Fatory footer top is a dark three-part band with logo, a centered newsletter/search form, and a right-aligned phone number; the center subscribe form has side borders and 35px padding.",
+    "The Fatory footer newsletter/search form is a 30px-radius pill with a 60px-tall input and a 50px circular paper-plane button inset 5px from the top and right.",
+    "The Fatory footer column titles use 22px, 600-weight, capitalized widget typography with 30px bottom spacing; they are not small uppercase labels.",
+    "The Fatory footer contact icons sit inside 40px square bordered frames, footer links use small triangle markers, opening hours use divided rows, and the footer bottom preserves company branding with a visible WebDevful signature.",
+    "Header/mobile logo grid rules must not leak into the footer logo; the footer top has its own layout and must reset footer logo grid placement when stacked."
   ],
   "checks": [
     {
@@ -271,6 +276,92 @@
         "font-size": "12px",
         "border-radius": "30px"
       }
+    },
+    {
+      "selector": ".main-footer",
+      "declarations": {
+        "background-color": "#022147"
+      }
+    },
+    {
+      "selector": ".footer-top",
+      "declarations": {
+        "border-bottom": "1px solid rgba(255, 255, 255, 0.2)",
+        "padding": "0"
+      }
+    },
+    {
+      "selector": ".footer-top-inner",
+      "declarations": {
+        "display": "grid",
+        "grid-template-columns": "minmax(0, 1fr) minmax(360px, 2fr) minmax(0, 1fr)"
+      }
+    },
+    {
+      "selector": ".subscribe-form",
+      "declarations": {
+        "border-left": "1px solid rgba(255, 255, 255, 0.2)",
+        "border-right": "1px solid rgba(255, 255, 255, 0.2)",
+        "padding": "35px"
+      }
+    },
+    {
+      "selector": ".newsletter-form",
+      "declarations": {
+        "position": "relative",
+        "border": "1px solid rgba(255, 255, 255, 0.2)",
+        "border-radius": "30px"
+      }
+    },
+    {
+      "selector": ".newsletter-form .form-control",
+      "declarations": {
+        "min-height": "60px",
+        "padding": "0 72px 0 25px"
+      }
+    },
+    {
+      "selector": ".newsletter-form button",
+      "declarations": {
+        "position": "absolute",
+        "right": "5px",
+        "top": "5px",
+        "width": "50px",
+        "height": "50px",
+        "border-radius": "50%"
+      }
+    },
+    {
+      "selector": ".footer-col .widget-title",
+      "declarations": {
+        "font-size": "22px",
+        "font-weight": "600",
+        "text-transform": "capitalize",
+        "margin-bottom": "30px"
+      }
+    },
+    {
+      "selector": ".footer-col.contact i",
+      "declarations": {
+        "width": "40px",
+        "height": "40px",
+        "line-height": "40px",
+        "border": "1px solid rgba(255, 255, 255, 0.2)"
+      }
+    },
+    {
+      "selector": ".footer-col.link li::after",
+      "declarations": {
+        "border-left": "6px solid #bcb3b3"
+      }
+    },
+    {
+      "selector": ".footer-col.opening-hours li",
+      "declarations": {
+        "margin-bottom": "10px",
+        "padding-bottom": "10px",
+        "border-bottom": "1px solid rgba(255, 255, 255, 0.2)"
+      }
     }
   ],
   "forbidden": [
@@ -370,6 +461,27 @@
       "declarations": {
         "transform": "translateY(-6px)"
       }
+    },
+    {
+      "selector": ".newsletter-form",
+      "declarations": {
+        "border-radius": "4px"
+      }
+    },
+    {
+      "selector": ".newsletter-form button",
+      "declarations": {
+        "width": "44px",
+        "height": "44px",
+        "border-radius": "4px"
+      }
+    },
+    {
+      "selector": ".footer-col h4",
+      "declarations": {
+        "font-size": "16px",
+        "text-transform": "uppercase"
+      }
     }
   ],
   "sourceChecks": [
@@ -448,6 +560,26 @@
     {
       "path": "src/pages/index.astro",
       "contains": ".blog-read-more::after"
+    },
+    {
+      "path": "src/pages/index.astro",
+      "contains": "Powered by WebDevful"
+    },
+    {
+      "path": "src/pages/index.astro",
+      "contains": "min-height: 60px;"
+    },
+    {
+      "path": "src/pages/index.astro",
+      "contains": "width: 50px;\n        height: 50px;\n        border-radius: 50%;"
+    },
+    {
+      "path": "src/pages/index.astro",
+      "contains": ".footer-col.link li::after"
+    },
+    {
+      "path": "src/pages/index.astro",
+      "contains": "grid-column: auto;\n          grid-row: auto;"
     }
   ],
   "forbiddenSourceRefs": [
@@ -455,6 +587,8 @@
     "margin-bottom: -8px;",
     "class=\"btn-simple\" href=\"#blog\"",
     "aspect-ratio: 16 / 10;",
-    "transform: translateY(-6px);"
+    "transform: translateY(-6px);",
+    "width: 44px;\n        height: 44px;\n        border-radius: 4px;",
+    "text-transform: uppercase;\n        margin-bottom: 25px;"
   ]
 }
