@@ -145,3 +145,23 @@ Validation:
 - Root `npm run qa:lpf-visual-diff -- --slug factoria --write-results`: PASS. Desktop `h-ratio 0.94 / band 0.75 / ssim 0.37`; mobile `h-ratio 0.92 / band 0.66 / ssim 0.22`; tablet `h-ratio 0.87 / band 0.49 / ssim 0.25`.
 - Root `npm run qa:lpf-rendered-output -- --url http://127.0.0.1:4361/ --output-dir qa/lpf-visual-fidelity/factoria/rendered-output --expect-visible-text Factoria --forbid-placeholder`: PASS.
 - Root `npm run qa:lpf-visual-fidelity -- --slug factoria --product-repo .../factoria/repo --rendered-url http://127.0.0.1:4361/ --expect-visible-text Factoria`: PASS.
+
+## Team Social Bar Return
+
+Owner returned Factoria section 7 on 2026-06-30 because the Team Members cards did not preserve the source social bar. The original Fatory screenshot shows a white social media bar overlapping the bottom of each team image/card; the current Factoria page rendered loose icons below the image without the overlapping bar.
+
+Changes applied:
+
+- Repaired `.team-item .social` into a real inset white bar with a negative top margin, shadow, centered layout, and overlap against the team image card.
+- Lifted the team name/role gradient overlay so the social bar does not cover the member text.
+- Preserved the existing Font Awesome social icons: Facebook, X/Twitter, and Instagram.
+- Added `qa/lpf-source-design-contracts/factoria.json` so the self-improving loop now checks the team social-bar structure and fails if it regresses into a loose icon row.
+
+Validation:
+
+- Product `npm run build`: PASS.
+- Product `npm run design:lint`: PASS with existing warning: `No YAML content found`.
+- Root `npm run qa:lpf-memory-loop -- --ticket docs/factory-orders/2026-06-30-lpf-repair-factoria-team-social-bar.md`: PASS.
+- Root `npm run qa:lpf-dispatch-preflight -- --ticket docs/factory-orders/2026-06-30-lpf-repair-factoria-team-social-bar.md`: PASS.
+- Source-design contract: `LPF_REQUIRE_SOURCE_TYPOGRAPHY=1 LPF_LANDING_PAGE_SLUG=factoria python3 .../tools/check_lpf_conversion_contract.py --project-root .../factoria/repo --landing-page-slug factoria`: PASS.
+- Local browser geometry proof on `http://127.0.0.1:4372/`: PASS. First team card social bar overlaps the thumbnail by `30px`, renders white, has a shadow, and keeps three Font Awesome icons.

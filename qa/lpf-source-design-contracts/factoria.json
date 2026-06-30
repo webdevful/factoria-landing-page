@@ -1,0 +1,68 @@
+{
+  "slug": "factoria",
+  "sourceUrl": "https://validthemes.net/site-template/fatory/?storefront=envato-elements",
+  "sourceCapture": "/Volumes/WDF-NAS-01/04-Projects/Internal-Projects/Codebases/webdevful-astro-main/captures/validthemes-net-site-template-fatory/desktop",
+  "sourceFacts": [
+    "The Fatory Team Members source card keeps the social links inside a white horizontal bar that overlaps the lower part of each image card.",
+    "The social bar is not a loose icon row below the card and does not replace Font Awesome social icons with generated art."
+  ],
+  "checks": [
+    {
+      "selector": ".team-item .social",
+      "declarations": {
+        "position": "relative",
+        "z-index": "4",
+        "background-color": "var(--white)",
+        "display": "flex",
+        "align-items": "center",
+        "justify-content": "center"
+      }
+    },
+    {
+      "selector": ".team-item .social ul",
+      "declarations": {
+        "display": "flex",
+        "justify-content": "center",
+        "align-items": "center"
+      }
+    },
+    {
+      "selector": ".team-item .social a",
+      "declarations": {
+        "display": "inline-flex",
+        "align-items": "center",
+        "justify-content": "center"
+      }
+    }
+  ],
+  "forbidden": [
+    {
+      "selector": ".team-item .social",
+      "declarations": {
+        "border-top": "1px solid var(--line)"
+      }
+    }
+  ],
+  "sourceChecks": [
+    {
+      "path": "src/pages/index.astro",
+      "contains": "margin: -30px auto 0;"
+    },
+    {
+      "path": "src/pages/index.astro",
+      "contains": "box-shadow: 0 10px 30px rgba(18, 20, 24, 0.08);"
+    },
+    {
+      "path": "src/pages/index.astro",
+      "contains": "fab fa-facebook-f"
+    },
+    {
+      "path": "src/pages/index.astro",
+      "contains": "fab fa-x-twitter"
+    },
+    {
+      "path": "src/pages/index.astro",
+      "contains": "fab fa-instagram"
+    }
+  ]
+}
