@@ -338,3 +338,6 @@ Validation:
 - Product source-design contract: PASS.
 - Local desktop browser proof on `http://127.0.0.1:4383/`: PASS. Blog card border radius `0px`, source shadow present, thumbnail `4 / 3`, info padding `30px`, avatar `50px` with source red border, `blog-read-more` radius `30px`, hero and testimonial CTAs radius `30px`, source-square work CTA radius `0px`. Screenshot: `/tmp/factoria-blog-card-buttons-local.png`.
 - Local mobile browser proof on `http://127.0.0.1:4383/`: PASS. Blog grid stacks to one column while preserving square card shell, `4 / 3` thumbnail, 50px avatar, and 30px rounded `blog-read-more` button. Screenshot: `/tmp/factoria-blog-card-buttons-mobile-local.png`.
+- Product commit `e540956 Repair Factoria blog card button shape` pushed to `origin/main`.
+- Cloudflare production deployment `765b62b1-5ba9-48b6-861f-ab9393d734f9` from source `e540956` published.
+- Public browser proof on `https://factoria-landing-page.pages.dev/`: PASS. Blog card border radius `0px`, source shadow present, thumbnail `4 / 3`, info padding `30px`, avatar `50px` with source red border, `blog-read-more` radius `30px`, hero and testimonial CTAs radius `30px`, source-square work CTA radius `0px`. Screenshot: `/tmp/factoria-blog-card-buttons-public.png`.
