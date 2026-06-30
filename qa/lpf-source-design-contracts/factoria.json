@@ -23,6 +23,7 @@
     "The Fatory desktop header is a transparent no-background fixed Validnavs header over the hero, not a dark translucent block.",
     "The Fatory header brand image is allocated by source logo height: `.navbar-brand>img` is 50px tall and swaps white/dark logo assets between transparent and scrolled states.",
     "The transparent Fatory header must show only the white display logo; the dark scrolled logo must remain hidden until `.fixed-header` is active.",
+    "The Fatory header logo image must be vertically centered inside the desktop header row; the `.logo` wrapper may stretch to the row height, but the child image must not sit flush at the top of that wrapper.",
     "The Fatory desktop header nav links use Inter-style source typography: 17px, 600 weight, capitalized labels, 30px 13px padding, and a Font Awesome dropdown marker offset by 7px.",
     "The Fatory right header action keeps a search item with 18px right padding and a rounded `get a quote` button using 13px 40px padding, 40px radius, uppercase text, and a 1px translucent white border.",
     "The Fatory mobile responsive header hides `.attr-nav`; it does not squeeze the quote button beside the centered mobile logo."
@@ -51,6 +52,14 @@
         "height": "90px",
         "padding": "0 15px",
         "max-width": "1320px"
+      }
+    },
+    {
+      "selector": ".main-header .logo",
+      "declarations": {
+        "display": "flex",
+        "align-items": "center",
+        "height": "100%"
       }
     },
     {
@@ -677,6 +686,10 @@
     {
       "path": "src/pages/index.astro",
       "contains": ".main-header .logo img"
+    },
+    {
+      "path": "src/pages/index.astro",
+      "contains": ".main-header .logo {\n        display: flex;\n        align-items: center;\n        height: 100%;"
     },
     {
       "path": "src/pages/index.astro",

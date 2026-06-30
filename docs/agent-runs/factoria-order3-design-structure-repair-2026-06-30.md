@@ -413,3 +413,29 @@ Validation:
 - Product source-design contract: PASS.
 - Local browser proof on `http://127.0.0.1:4387/`: PASS. Desktop top header is transparent, `z-index: 100`, inner width `1320px`, inner height `90px`; white logo is `274.375x50` and the dark scrolled logo is hidden; nav is Inter `17px/30px`, `600`, capitalize, `30px 13px`; dropdown icon offset is `7px`; search padding-right is `18px`; quote button is `187.6x53`, `40px` radius, `13px 40px` padding, uppercase. Scrolled header is fixed, white, `90px`, dark logo visible, white logo hidden. Mobile header is white, `70px` inner height, dark logo visible, white logo hidden, and `.attr-nav` display is `none`.
 - Local evidence bundle: `qa/lpf-rendered-output/factoria-header-source-structure-local/` with `desktop-top.png`, `desktop-scrolled.png`, `mobile-top.png`, and `header-proof.json`.
+
+## Header Logo Vertical Alignment Return
+
+Owner returned Factoria again on 2026-06-30 because the landing page logo in the header was not vertically centered and looked almost flush to the top border.
+
+Root cause:
+
+- The previous header source-structure repair restored a 90px desktop header row and a 50px logo image, but the `.main-header .logo` anchor was stretched to 90px while its child image stayed top-aligned.
+- Public pre-repair geometry showed desktop `.main-header .logo` height `90px`, child image top `0px`, and child image center `25px` against header-inner center `45px`.
+
+Changes applied:
+
+- Changed `.main-header .logo` into a header-scoped flex wrapper with `display: flex`, `align-items: center`, and `height: 100%`.
+- Preserved existing 50px logo height, transparent/scrolled logo swap behavior, mobile centered header, and hidden mobile `.attr-nav`.
+- Extended `qa/lpf-source-design-contracts/factoria.json` so the self-improving loop now checks the logo wrapper alignment rule instead of only image height.
+
+Validation:
+
+- Root `npm run factory:lpf:stopline`: PASS.
+- Root `npm run qa:lpf-memory-loop -- --ticket docs/factory-orders/2026-06-30-lpf-repair-factoria-header-logo-vertical-alignment.md`: PASS. STAMP MLP ticket=2026-06-30-lpf-repair-factoria-header-logo-vertical-alignment lane=LPF at=2026-06-30 digest=688e8250.
+- Root `npm run qa:lpf-dispatch-preflight -- --ticket docs/factory-orders/2026-06-30-lpf-repair-factoria-header-logo-vertical-alignment.md`: PASS. STAMP DPP ticket=2026-06-30-lpf-repair-factoria-header-logo-vertical-alignment lane=LPF at=2026-06-30 digest=62bb8b5b.
+- Product `npm run build`: PASS.
+- Product `npm run design:lint`: PASS with existing no-YAML warning.
+- Product source-design contract: PASS.
+- Local browser proof on `http://127.0.0.1:4387/`: PASS. Desktop top and scrolled logo images render at `y=20` inside the 90px header row, with `topSpacePx: 20`, `bottomSpacePx: 20`, and `centerDeltaPx: 0`; mobile header remains centered with `topSpacePx: 10`, `bottomSpacePx: 10`, and `.attr-nav` hidden.
+- Local evidence bundle: `qa/lpf-rendered-output/factoria-header-logo-alignment-local/` with `desktop-top.png`, `desktop-scrolled.png`, `mobile-top.png`, and `header-logo-alignment-proof.json`.
