@@ -243,3 +243,8 @@ Validation:
 - Root `npm run qa:lpf-dispatch-preflight -- --ticket docs/factory-orders/2026-06-30-lpf-repair-factoria-testimonial-slider-icons-quote-placement.md`: PASS. STAMP DPP ticket=2026-06-30-lpf-repair-factoria-testimonial-slider-icons-quote-placement lane=LPF at=2026-06-30 digest=ac7cdc11.
 - Source-design contract: `LPF_REQUIRE_SOURCE_TYPOGRAPHY=1 LPF_LANDING_PAGE_SLUG=factoria python3 .../tools/check_lpf_conversion_contract.py --project-root .../factoria/repo --landing-page-slug factoria`: PASS.
 - Local browser proof on `http://127.0.0.1:4376/`: PASS. Desktop and mobile testimonial controls use `fa fa-angle-left/right`, Font Awesome 7 Free renders the icons, `.testimonial-items-wrap::after` carries the visible quote glyph at `left: 0; top: -15px`, `.testimonial-box::after` is `content: none`, and next/previous controls changed active reviewer `Jones Adhor -> Mones Basel -> Jones Adhor`.
+- Product commit `b55fe2e Repair Factoria testimonial controls` pushed to `origin/main`.
+- Cloudflare production deployment `f6917d47-1900-4d7f-a283-c067d0efdb2f` from source `b55fe2e` published.
+- Public browser proof on `https://factoria-landing-page.pages.dev/`: PASS. Quote pseudo-element remains on the left wrapper, old right-box quote is removed, controls use `fa fa-angle-left/right`, and next/previous controls changed active reviewer `Jones Adhor -> Mones Basel -> Jones Adhor`.
+- Public root `npm run qa:lpf-rendered-output -- --url https://factoria-landing-page.pages.dev/ --output-dir qa/lpf-rendered-output/factoria-testimonial-icons-quote-public --expect-visible-text Factoria --forbid-placeholder`: PASS.
+- Public root `npm run qa:lpf-funnel-sync -- --slug factoria ...`: PASS, MAE `5.82`, RMS `27.70`.
