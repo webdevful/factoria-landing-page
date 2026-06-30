@@ -377,3 +377,39 @@ Validation:
 - Product commit `e540956 Repair Factoria blog card button shape` pushed to `origin/main`.
 - Cloudflare production deployment `765b62b1-5ba9-48b6-861f-ab9393d734f9` from source `e540956` published.
 - Public browser proof on `https://factoria-landing-page.pages.dev/`: PASS. Blog card border radius `0px`, source shadow present, thumbnail `4 / 3`, info padding `30px`, avatar `50px` with source red border, `blog-read-more` radius `30px`, hero and testimonial CTAs radius `30px`, source-square work CTA radius `0px`. Screenshot: `/tmp/factoria-blog-card-buttons-public.png`.
+
+## Header Source Structure Return
+
+Owner returned Factoria again on 2026-06-30 because the header component did not match the original design. The reported failures were wrong typography/font library application, wrong title/nav sizes, wrong height/width/line-height/spacing, and incorrect logo allocation.
+
+Source facts:
+
+- Source Fatory header markup uses `navbar mobile-sidenav nav-border navbar-sticky navbar-default validnavs white no-background navbar-fixed nav-border`.
+- Source header is transparent over the hero in the no-background state, with a `1px` translucent white bottom border and `z-index: 100`.
+- Source logo images are allocated by height: `.navbar-brand>img { height: 50px; }`.
+- Source desktop nav links use `17px`, `600` weight, `capitalize`, `30px 13px` padding, and 30px line-height.
+- Source dropdown marker spacing uses Font Awesome with `margin-left: 7px`, `font-weight: 600`, and `top: 1px`.
+- Source right action area keeps search padding-right `18px` and the quote button uses `13px 40px`, `40px` radius, uppercase text, and `1px solid rgba(255, 255, 255, 0.6)`.
+- Source responsive CSS hides `.attr-nav` on mobile, so the mobile header should not squeeze the quote button beside the centered logo.
+
+Changes applied:
+
+- Rebuilt `.main-header` as the source transparent fixed header instead of the dark translucent generic bar.
+- Restored desktop header rhythm to a 90px inner height with 50px logo allocation and 1320px container width.
+- Restored nav typography to Inter `17px`, `600`, 30px line-height, source padding, source capitalization, and no invented underline animation.
+- Restored source dropdown icon spacing, search padding, quote-button padding/radius/border, and white scrolled-state header.
+- Scoped logo rules to `.main-header` so header/mobile logo placement cannot leak into footer branding again.
+- Fixed logo state behavior: top desktop shows only `.logo-display`, fixed/scrolled and mobile show only `.logo-scrolled`.
+- Hid `.attr-nav` in the mobile header to match the source responsive behavior.
+- Expanded `qa/lpf-source-design-contracts/factoria.json` so the self-improving loop enforces header topology, typography, logo swap state, action geometry, and the mobile attr-nav rule.
+
+Validation:
+
+- Root `npm run factory:lpf:stopline`: PASS. Factoria remains a page rebuild candidate by total repair-ticket count, but no threshold blocked this bounded header repair.
+- Root `npm run qa:lpf-memory-loop -- --ticket docs/factory-orders/2026-06-30-lpf-repair-factoria-header-source-structure.md`: PASS. STAMP MLP ticket=2026-06-30-lpf-repair-factoria-header-source-structure lane=LPF at=2026-06-30 digest=b96d88df.
+- Root `npm run qa:lpf-dispatch-preflight -- --ticket docs/factory-orders/2026-06-30-lpf-repair-factoria-header-source-structure.md`: PASS. STAMP DPP ticket=2026-06-30-lpf-repair-factoria-header-source-structure lane=LPF at=2026-06-30 digest=f5bbf8b6.
+- Product `npm run build`: PASS.
+- Product `npm run design:lint`: PASS with existing no-YAML warning.
+- Product source-design contract: PASS.
+- Local browser proof on `http://127.0.0.1:4387/`: PASS. Desktop top header is transparent, `z-index: 100`, inner width `1320px`, inner height `90px`; white logo is `274.375x50` and the dark scrolled logo is hidden; nav is Inter `17px/30px`, `600`, capitalize, `30px 13px`; dropdown icon offset is `7px`; search padding-right is `18px`; quote button is `187.6x53`, `40px` radius, `13px 40px` padding, uppercase. Scrolled header is fixed, white, `90px`, dark logo visible, white logo hidden. Mobile header is white, `70px` inner height, dark logo visible, white logo hidden, and `.attr-nav` display is `none`.
+- Local evidence bundle: `qa/lpf-rendered-output/factoria-header-source-structure-local/` with `desktop-top.png`, `desktop-scrolled.png`, `mobile-top.png`, and `header-proof.json`.
