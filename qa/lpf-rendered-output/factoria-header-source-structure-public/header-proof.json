@@ -1,0 +1,126 @@
+{
+  "url": "https://factoria-landing-page.pages.dev/",
+  "capturedAt": "2026-06-30T23:01:11.011Z",
+  "top": {
+    "headerBox": {
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 91
+    },
+    "headerPosition": "absolute",
+    "headerZ": "100",
+    "headerBg": "rgba(0, 0, 0, 0)",
+    "innerBox": {
+      "x": 60,
+      "y": 0,
+      "width": 1320,
+      "height": 90
+    },
+    "displayLogo": {
+      "width": 274.375,
+      "height": 50,
+      "display": "block"
+    },
+    "scrolledLogo": {
+      "width": 0,
+      "height": 0,
+      "display": "none"
+    },
+    "nav": {
+      "fontFamily": "Inter, system-ui, sans-serif",
+      "fontSize": "17px",
+      "fontWeight": "600",
+      "lineHeight": "30px",
+      "paddingTop": "30px",
+      "paddingRight": "13px",
+      "paddingBottom": "30px",
+      "textTransform": "capitalize"
+    },
+    "arrow": {
+      "marginLeft": "7px",
+      "fontSize": "13px",
+      "fontWeight": "600",
+      "top": "1px"
+    },
+    "search": {
+      "display": "block",
+      "paddingRight": "18px"
+    },
+    "quote": {
+      "box": {
+        "x": 1177.390625,
+        "y": 18.5,
+        "width": 187.609375,
+        "height": 53
+      },
+      "border": "1px solid rgba(255, 255, 255, 0.6)",
+      "borderRadius": "40px",
+      "paddingTop": "13px",
+      "paddingRight": "40px",
+      "paddingBottom": "13px",
+      "paddingLeft": "40px",
+      "textTransform": "uppercase"
+    }
+  },
+  "scrolled": {
+    "headerClass": "main-header fixed-header",
+    "headerBox": {
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 90
+    },
+    "headerPosition": "fixed",
+    "headerBg": "rgb(255, 255, 255)",
+    "headerShadow": "rgba(0, 0, 0, 0.04) 0px 8px 25px 0px",
+    "navColor": "rgb(31, 34, 41)",
+    "searchColor": "rgb(31, 34, 41)",
+    "quoteColor": "rgb(255, 53, 20)",
+    "quoteBorder": "1px solid rgb(206, 206, 206)",
+    "displayLogo": {
+      "display": "none",
+      "width": 0,
+      "height": 0
+    },
+    "scrolledLogo": {
+      "display": "block",
+      "width": 274.375,
+      "height": 50
+    }
+  },
+  "mobile": {
+    "headerBox": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 71
+    },
+    "innerBox": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 70
+    },
+    "headerBg": "rgb(255, 255, 255)",
+    "displayLogo": {
+      "display": "none",
+      "width": 0,
+      "height": 0
+    },
+    "logoBox": {
+      "display": "block",
+      "width": 274.375,
+      "height": 50,
+      "x": 72.8125
+    },
+    "attrNavDisplay": "none",
+    "menuToggleDisplay": "block",
+    "menuToggleBox": {
+      "x": 15,
+      "y": 23,
+      "width": 30,
+      "height": 24
+    }
+  }
+}
