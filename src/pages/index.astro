@@ -2230,6 +2230,38 @@ const blogItems = [
         overflow: hidden;
       }
 
+      .team-area .section-header h2 {
+        position: relative;
+        display: table;
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 28px;
+      }
+
+      .team-area .section-header h2::before,
+      .team-area .section-header h2::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        height: 2px;
+        background-color: var(--yellow);
+      }
+
+      .team-area .section-header h2::before {
+        width: 40px;
+        margin-left: -25px;
+      }
+
+      .team-area .section-header h2::after {
+        width: 5px;
+        margin-left: 22px;
+      }
+
+      .team-area .section-desc {
+        margin-top: 18px;
+      }
+
       .team-items {
         margin-top: 50px;
       }
@@ -2246,6 +2278,21 @@ const blogItems = [
         aspect-ratio: 3 / 4;
       }
 
+      .team-item .thumb::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background-image: linear-gradient(to bottom, rgba(18, 20, 24, 0.08), rgba(18, 20, 24, 0.82));
+        opacity: 0;
+        transition: opacity 650ms ease-in-out;
+        pointer-events: none;
+      }
+
+      .team-item:hover .thumb::before {
+        opacity: 1;
+      }
+
       .team-item .thumb img {
         width: 100%;
         height: 100%;
@@ -2260,11 +2307,11 @@ const blogItems = [
         background-image: linear-gradient(to top, rgba(18, 20, 24, 0.9), transparent);
         padding: 80px 20px 72px;
         color: var(--white);
-        transition: transform 300ms ease, opacity 300ms ease;
+        z-index: 2;
+        transition: opacity 650ms ease-in-out;
       }
 
       .team-item:hover .info {
-        transform: translateY(20px);
         opacity: 0;
       }
 
@@ -2282,25 +2329,28 @@ const blogItems = [
 
       .team-item .overlay {
         position: absolute;
-        inset: 0;
-        background-color: rgba(18, 20, 24, 0.92);
-        padding: 40px 30px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        left: 30px;
+        right: 30px;
+        bottom: 108px;
+        z-index: 3;
+        background-color: transparent;
+        padding: 0;
+        display: block;
         opacity: 0;
-        transition: opacity 300ms ease;
+        transform: translateY(28px);
+        transition: opacity 650ms ease-in-out, transform 650ms ease-in-out;
       }
 
       .team-item:hover .overlay {
         opacity: 1;
+        transform: translateY(-34px);
       }
 
       .team-item .overlay h4 {
         font-family: var(--font-display);
         font-size: 20px;
         font-weight: 700;
-        color: var(--yellow);
+        color: var(--white);
         margin-bottom: 12px;
       }
 

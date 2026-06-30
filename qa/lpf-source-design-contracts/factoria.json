@@ -4,9 +4,65 @@
   "sourceCapture": "/Volumes/WDF-NAS-01/04-Projects/Internal-Projects/Codebases/webdevful-astro-main/captures/validthemes-net-site-template-fatory/desktop",
   "sourceFacts": [
     "The Fatory Team Members source card keeps the social links inside a white horizontal bar that overlaps the lower part of each image card.",
-    "The social bar is not a loose icon row below the card and does not replace Font Awesome social icons with generated art."
+    "The social bar is not a loose icon row below the card and does not replace Font Awesome social icons with generated art.",
+    "The Fatory Team Members heading has red divider pseudo-elements under the H2: a 40px line plus a short 5px segment.",
+    "The Fatory Team Members hover does not snap to a fast full-card blackout; member info fades with slower ease-in-out timing while the overlay text slides upward over the darkened image."
   ],
   "checks": [
+    {
+      "selector": ".team-area .section-header h2",
+      "declarations": {
+        "position": "relative",
+        "display": "table",
+        "padding-bottom": "28px"
+      }
+    },
+    {
+      "selector": ".team-area .section-header h2::before",
+      "declarations": {
+        "content": "\"\"",
+        "position": "absolute",
+        "width": "40px",
+        "height": "2px",
+        "background-color": "var(--yellow)"
+      }
+    },
+    {
+      "selector": ".team-area .section-header h2::after",
+      "declarations": {
+        "content": "\"\"",
+        "position": "absolute",
+        "width": "5px",
+        "height": "2px",
+        "background-color": "var(--yellow)"
+      }
+    },
+    {
+      "selector": ".team-item .thumb::before",
+      "declarations": {
+        "content": "\"\"",
+        "position": "absolute",
+        "opacity": "0",
+        "transition": "opacity 650ms ease-in-out"
+      }
+    },
+    {
+      "selector": ".team-item .info",
+      "declarations": {
+        "z-index": "2",
+        "transition": "opacity 650ms ease-in-out"
+      }
+    },
+    {
+      "selector": ".team-item .overlay",
+      "declarations": {
+        "background-color": "transparent",
+        "display": "block",
+        "opacity": "0",
+        "transform": "translateY(28px)",
+        "transition": "opacity 650ms ease-in-out, transform 650ms ease-in-out"
+      }
+    },
     {
       "selector": ".team-item .social",
       "declarations": {
@@ -41,9 +97,27 @@
       "declarations": {
         "border-top": "1px solid var(--line)"
       }
+    },
+    {
+      "selector": ".team-item .overlay",
+      "declarations": {
+        "background-color": "rgba(18, 20, 24, 0.92)"
+      }
     }
   ],
   "sourceChecks": [
+    {
+      "path": "src/pages/index.astro",
+      "contains": ".team-area .section-header h2::before"
+    },
+    {
+      "path": "src/pages/index.astro",
+      "contains": ".team-area .section-header h2::after"
+    },
+    {
+      "path": "src/pages/index.astro",
+      "contains": "transition: opacity 650ms ease-in-out, transform 650ms ease-in-out;"
+    },
     {
       "path": "src/pages/index.astro",
       "contains": "margin: -30px auto 0;"

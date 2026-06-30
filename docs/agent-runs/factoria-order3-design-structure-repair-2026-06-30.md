@@ -165,3 +165,28 @@ Validation:
 - Root `npm run qa:lpf-dispatch-preflight -- --ticket docs/factory-orders/2026-06-30-lpf-repair-factoria-team-social-bar.md`: PASS.
 - Source-design contract: `LPF_REQUIRE_SOURCE_TYPOGRAPHY=1 LPF_LANDING_PAGE_SLUG=factoria python3 .../tools/check_lpf_conversion_contract.py --project-root .../factoria/repo --landing-page-slug factoria`: PASS.
 - Local browser geometry proof on `http://127.0.0.1:4372/`: PASS. First team card social bar overlaps the thumbnail by `30px`, renders white, has a shadow, and keeps three Font Awesome icons.
+
+## Team Heading Divider And Hover Return
+
+Owner returned the same Team Members section on 2026-06-30 because the source heading divider decoration was still missing and the team-card hover effect behaved too fast and unlike the original Fatory hover.
+
+Source/current measurements:
+
+- Live Fatory source Team Members H2 has red pseudo-elements under the title: `::before` width `40px`, `::after` width `5px`, both `2px` high and red.
+- Previous Factoria public H2 had no pseudo-elements.
+- Live Fatory source hover fades member info with `0.65s ease-in-out` and slides descriptive overlay text over a darkened image.
+- Previous Factoria public hover used a fast `0.3s` full-card opacity overlay that completed almost immediately.
+
+Changes applied:
+
+- Added source-style red H2 divider pseudo-elements to the Team Members section.
+- Preserved eyebrow/title/body vertical order after adding the divider.
+- Changed team hover to use a darkening image pseudo-overlay, slower `650ms ease-in-out` timing, and a sliding transparent text overlay instead of a fast full-card blackout.
+- Extended `qa/lpf-source-design-contracts/factoria.json` so the self-improving loop now enforces heading divider pseudo-elements, slower hover timing, transparent overlay behavior, and forbids the old full-card overlay background.
+
+Validation:
+
+- Product `npm run build`: PASS.
+- Product `npm run design:lint`: PASS with existing warning: `No YAML content found`.
+- Source-design contract: `LPF_REQUIRE_SOURCE_TYPOGRAPHY=1 LPF_LANDING_PAGE_SLUG=factoria python3 .../tools/check_lpf_conversion_contract.py --project-root .../factoria/repo --landing-page-slug factoria`: PASS.
+- Local browser proof on `http://127.0.0.1:4374/`: PASS. The eyebrow remains above the title, the description remains below the title, H2 divider pseudo-elements are `40px + 5px`, hover is intermediate at `250ms` (`infoOpacity 0.692`, `overlayOpacity 0.308`) and completes by `900ms`.
