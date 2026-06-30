@@ -11,7 +11,10 @@
     "The Fatory testimonials section places the faint quote ornament on the left/title-side wrapper pseudo-element `.testimonial-items::after`; it is not rendered behind the right testimonial text.",
     "The Fatory testimonial carousel nav icons use source-compatible Font Awesome angle markup: `fa fa-angle-left` and `fa fa-angle-right`.",
     "The Fatory testimonial carousel is finite (`loop: false`) and Owl's disabled nav control is visibly dimmed at the boundary; the first slide must show the previous control as disabled instead of two equally active black arrows.",
-    "The testimonial controls must not be clipped by the Swiper viewport; the arrow icon boxes must render fully below the testimonial content with no part hidden by an overflow container."
+    "The testimonial controls must not be clipped by the Swiper viewport; the arrow icon boxes must render fully below the testimonial content with no part hidden by an overflow container.",
+    "The Fatory primary CTA taxonomy uses rounded `.btn.circle` controls for hero, testimonial, and Blog card buttons; square CTA treatment is reserved for source buttons that do not carry `.circle`.",
+    "The Fatory Blog / Latest News card button is not a text-only `.btn-simple` link; source markup uses `btn circle btn-theme angle effect btn-sm` with a 30px radius and a CSS angle arrow.",
+    "The Fatory Blog cards are white shadow cards with a 4:3 image rhythm, no rounded card shell, no hover lift, 30px content padding, and 50px author avatars with a light red border."
   ],
   "checks": [
     {
@@ -199,6 +202,75 @@
         "height": "32px",
         "overflow": "visible"
       }
+    },
+    {
+      "selector": ".theme-btn",
+      "declarations": {
+        "border-radius": "30px",
+        "border": "2px solid var(--yellow)",
+        "padding": "15px 45px 15px 40px"
+      }
+    },
+    {
+      "selector": ".theme-btn::after",
+      "declarations": {
+        "content": "\"\"",
+        "border-left": "8px solid currentColor"
+      }
+    },
+    {
+      "selector": ".slide-btns .theme-btn",
+      "declarations": {
+        "border-radius": "30px"
+      }
+    },
+    {
+      "selector": ".work-with-us-area .theme-btn",
+      "declarations": {
+        "border-radius": "0"
+      }
+    },
+    {
+      "selector": ".blog-item",
+      "declarations": {
+        "border": "0",
+        "border-radius": "0",
+        "box-shadow": "0 0 10px rgba(0, 0, 0, 0.1)"
+      }
+    },
+    {
+      "selector": ".blog-item:hover",
+      "declarations": {
+        "transform": "none"
+      }
+    },
+    {
+      "selector": ".blog-item .thumb",
+      "declarations": {
+        "aspect-ratio": "4 / 3"
+      }
+    },
+    {
+      "selector": ".blog-item .info",
+      "declarations": {
+        "padding": "30px"
+      }
+    },
+    {
+      "selector": ".blog-item .meta img",
+      "declarations": {
+        "width": "50px",
+        "height": "50px",
+        "border": "3px solid rgba(255, 53, 20, 0.1)"
+      }
+    },
+    {
+      "selector": ".blog-read-more",
+      "declarations": {
+        "padding": "10px 40px 10px 35px",
+        "font-size": "12px",
+        "border-radius": "30px"
+      }
     }
   ],
   "forbidden": [
@@ -260,6 +332,43 @@
       "selector": ".testimonial-box",
       "declarations": {
         "overflow": "hidden"
+      }
+    },
+    {
+      "selector": ".theme-btn",
+      "declarations": {
+        "border-radius": "0"
+      }
+    },
+    {
+      "selector": ".slide-btns .theme-btn",
+      "declarations": {
+        "border-radius": "0"
+      }
+    },
+    {
+      "selector": ".blog-item",
+      "declarations": {
+        "border-radius": "4px"
+      }
+    },
+    {
+      "selector": ".blog-item .thumb",
+      "declarations": {
+        "aspect-ratio": "16 / 10"
+      }
+    },
+    {
+      "selector": ".blog-item .meta img",
+      "declarations": {
+        "width": "24px",
+        "height": "24px"
+      }
+    },
+    {
+      "selector": ".blog-item:hover",
+      "declarations": {
+        "transform": "translateY(-6px)"
       }
     }
   ],
@@ -331,10 +440,21 @@
     {
       "path": "src/pages/index.astro",
       "contains": ".testimonial-items-wrap::after"
+    },
+    {
+      "path": "src/pages/index.astro",
+      "contains": "class=\"theme-btn blog-read-more\""
+    },
+    {
+      "path": "src/pages/index.astro",
+      "contains": ".blog-read-more::after"
     }
   ],
   "forbiddenSourceRefs": [
     "new Swiper('.testimonials-carousel', {\n        slidesPerView: 1,\n        loop: false,\n        rewind: true",
-    "margin-bottom: -8px;"
+    "margin-bottom: -8px;",
+    "class=\"btn-simple\" href=\"#blog\"",
+    "aspect-ratio: 16 / 10;",
+    "transform: translateY(-6px);"
   ]
 }

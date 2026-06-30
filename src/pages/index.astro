@@ -533,7 +533,7 @@ const blogItems = [
                     </div>
                     <div class="content">
                       <h3><a href="#blog">{item.title}</a></h3>
-                      <a class="btn-simple" href="#blog">Read more <i class="fas fa-arrow-right"></i></a>
+                      <a class="theme-btn blog-read-more" href="#blog">Read more <i class="fas fa-arrow-right"></i></a>
                     </div>
                   </div>
                 </article>
@@ -1023,23 +1023,44 @@ const blogItems = [
       .theme-btn {
         display: inline-flex;
         align-items: center;
-        gap: 12px;
+        gap: 0;
+        position: relative;
         font-family: var(--font-display);
         background-color: var(--yellow);
-        color: var(--black);
-        padding: 14px 28px;
-        font-weight: 700;
+        color: var(--white);
+        padding: 15px 45px 15px 40px;
+        font-weight: 600;
         text-transform: uppercase;
-        font-size: 13px;
-        border: 0;
+        font-size: 14px;
+        line-height: 25px;
+        letter-spacing: 1px;
+        border: 2px solid var(--yellow);
+        border-radius: 30px;
+        overflow: hidden;
         cursor: pointer;
-        transition: all 250ms ease;
+        transition: all 350ms ease-in-out;
+      }
+
+      .theme-btn::after {
+        position: absolute;
+        right: 30px;
+        top: 50%;
+        margin-top: -7px;
+        content: "";
+        border-top: 7px solid transparent;
+        border-bottom: 7px solid transparent;
+        border-left: 8px solid currentColor;
+        transition: all 350ms ease-in-out;
+      }
+
+      .theme-btn i {
+        display: none;
       }
 
       .theme-btn:hover {
-        background-color: var(--yellow-hover);
-        transform: translateY(-2px);
-        box-shadow: 0 10px 20px rgba(255, 53, 20, 0.16);
+        background-color: var(--yellow);
+        color: var(--white);
+        border-color: var(--yellow);
       }
 
       .attr-nav .theme-btn {
@@ -1054,6 +1075,10 @@ const blogItems = [
         letter-spacing: 0.5px;
         box-shadow: none;
         transition: all 250ms ease;
+      }
+
+      .attr-nav .theme-btn::after {
+        display: none;
       }
 
       .attr-nav .theme-btn:hover {
@@ -1617,15 +1642,16 @@ const blogItems = [
       }
 
       .slide-btns .theme-btn {
-        background-color: var(--yellow);
-        color: var(--white);
-        border-radius: 0;
-        padding: 14px 28px;
+        background-color: var(--white);
+        border-color: var(--white);
+        color: var(--black);
+        border-radius: 30px;
       }
 
       .slide-btns .theme-btn:hover {
-        background-color: var(--white);
-        color: var(--black);
+        background-color: var(--yellow);
+        border-color: var(--yellow);
+        color: var(--white);
       }
 
       .video-play-btn {
@@ -1820,6 +1846,10 @@ const blogItems = [
         font-weight: 800;
         line-height: 1.25;
         margin: 8px 0 24px;
+      }
+
+      .work-with-us-area .theme-btn {
+        border-radius: 0;
       }
 
       .facts-grid {
@@ -2608,20 +2638,21 @@ const blogItems = [
 
       .blog-item {
         background-color: var(--white);
-        border: 1px solid var(--line);
-        border-radius: 4px;
+        border: 0;
+        border-radius: 0;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         overflow: hidden;
-        transition: all 300ms ease;
+        transition: all 350ms ease-in-out;
       }
 
       .blog-item:hover {
-        transform: translateY(-6px);
-        border-color: var(--yellow);
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+        transform: none;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       }
 
       .blog-item .thumb {
-        aspect-ratio: 16 / 10;
+        aspect-ratio: 4 / 3;
+        position: relative;
         overflow: hidden;
       }
 
@@ -2632,17 +2663,44 @@ const blogItems = [
       }
 
       .blog-item .info {
-        padding: 28px;
+        padding: 30px;
       }
 
       .blog-item .meta ul {
         list-style: none;
         display: flex;
         align-items: center;
-        gap: 20px;
+        gap: 0;
         margin-bottom: 16px;
         font-size: 13px;
         color: var(--ink-soft);
+      }
+
+      .blog-item .meta li {
+        margin-right: 15px;
+        padding-right: 15px;
+        position: relative;
+        font-weight: 600;
+      }
+
+      .blog-item .meta li::after {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        content: "";
+        height: 20px;
+        width: 1px;
+        background-color: #cccccc;
+        margin-top: -10px;
+      }
+
+      .blog-item .meta li:last-child {
+        margin-right: 0;
+        padding-right: 0;
+      }
+
+      .blog-item .meta li:last-child::after {
+        display: none;
       }
 
       .blog-item .meta a {
@@ -2652,9 +2710,12 @@ const blogItems = [
       }
 
       .blog-item .meta img {
-        width: 24px;
-        height: 24px;
-        border-radius: 999px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 3px solid rgba(255, 53, 20, 0.1);
+        padding: 2px;
+        margin-right: 5px;
       }
 
       .blog-item .meta i {
@@ -2663,15 +2724,25 @@ const blogItems = [
 
       .blog-item h3 {
         font-family: var(--font-display);
-        font-size: 18px;
-        font-weight: 700;
+        font-size: 20px;
+        font-weight: 600;
         line-height: 1.4;
         margin-bottom: 20px;
-        min-height: 50px;
       }
 
       .blog-item h3 a:hover {
         color: var(--yellow);
+      }
+
+      .blog-read-more {
+        padding: 10px 40px 10px 35px;
+        font-size: 12px;
+        border-radius: 30px;
+        margin-top: 8px;
+      }
+
+      .blog-read-more::after {
+        right: 27px;
       }
 
       /* Footer */

@@ -308,3 +308,33 @@ Validation:
 - Product commit `a4c6df3 Repair Factoria testimonial icon clipping` pushed to `origin/main`.
 - Cloudflare production deployment `bd60601e-c721-43f1-966e-38b0c359fcfb` from source `a4c6df3` published.
 - Public browser proof on `https://factoria-landing-page.pages.dev/`: PASS. `.testimonial-controls` is not inside `.testimonials-carousel`; `.testimonial-box` overflow is `visible`; controls margin-bottom is `0px`; arrow buttons are `32px` high with visible overflow; Font Awesome angle glyphs render at 24px and sit fully inside the controls; no testimonial-module overflow-hidden ancestor contains the icons. Screenshot: `/tmp/factoria-testimonial-controls-after-public.png`.
+
+## Blog Card And Button Shape Return
+
+Owner returned Factoria again on 2026-06-30 because a card section and its buttons did not match the original; the factory had also generalized the wrong square/button treatment across the page.
+
+Source facts:
+
+- Source Fatory Blog / Latest News cards use `btn circle btn-theme angle effect btn-sm` for each card `Read more` button.
+- Source primary `.btn.circle` buttons carry `border-radius: 30px`; square treatment belongs only to source buttons without `.circle`, such as the work-with-us CTA.
+- Source Blog cards are white cards with `0 0 10px rgba(0, 0, 0, 0.1)` shadow, 30px info padding, 4:3 blog imagery from 800x600 source assets, and 50px author avatars with a light red border.
+
+Changes applied:
+
+- Changed Blog card `Read more` links from `btn-simple` to `theme-btn blog-read-more`.
+- Rebuilt the shared `.theme-btn` CTA style around the source rounded `btn.circle` system: 30px radius, red primary background, 2px border, uppercase text, and CSS angle arrow.
+- Preserved source-square behavior for `.work-with-us-area .theme-btn` with `border-radius: 0`.
+- Changed hero and testimonial CTAs to source-rounded button radius.
+- Repaired Blog cards to source-style shadow cards: no rounded shell, no border, no hover lift, 4:3 thumbnails, 30px content padding, 50px bordered avatars, and rounded red `Read more` buttons.
+- Expanded `qa/lpf-source-design-contracts/factoria.json` to enforce Blog card geometry, card button shape, rounded primary CTA taxonomy, and the square work-CTA exception.
+
+Validation:
+
+- Root `npm run factory:lpf:stopline`: PASS.
+- Root `npm run qa:lpf-memory-loop -- --ticket docs/factory-orders/2026-06-30-lpf-repair-factoria-blog-card-button-shape.md`: PASS. STAMP MLP ticket=2026-06-30-lpf-repair-factoria-blog-card-button-shape lane=LPF at=2026-06-30 digest=e0be96f7.
+- Root `npm run qa:lpf-dispatch-preflight -- --ticket docs/factory-orders/2026-06-30-lpf-repair-factoria-blog-card-button-shape.md`: PASS. STAMP DPP ticket=2026-06-30-lpf-repair-factoria-blog-card-button-shape lane=LPF at=2026-06-30 digest=1592142e.
+- Product `npm run build`: PASS.
+- Product `npm run design:lint`: PASS with existing no-YAML warning.
+- Product source-design contract: PASS.
+- Local desktop browser proof on `http://127.0.0.1:4383/`: PASS. Blog card border radius `0px`, source shadow present, thumbnail `4 / 3`, info padding `30px`, avatar `50px` with source red border, `blog-read-more` radius `30px`, hero and testimonial CTAs radius `30px`, source-square work CTA radius `0px`. Screenshot: `/tmp/factoria-blog-card-buttons-local.png`.
+- Local mobile browser proof on `http://127.0.0.1:4383/`: PASS. Blog grid stacks to one column while preserving square card shell, `4 / 3` thumbnail, 50px avatar, and 30px rounded `blog-read-more` button. Screenshot: `/tmp/factoria-blog-card-buttons-mobile-local.png`.
