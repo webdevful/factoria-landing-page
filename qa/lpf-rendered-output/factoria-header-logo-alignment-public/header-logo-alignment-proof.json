@@ -1,0 +1,127 @@
+{
+  "url": "https://factoria-landing-page.pages.dev/",
+  "capturedAt": "2026-06-30T23:28:08.452Z",
+  "deployment": "https://da7141dc.factoria-landing-page.pages.dev",
+  "productCommit": "588bdca",
+  "top": {
+    "label": "top",
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 91,
+      "top": 0,
+      "bottom": 91
+    },
+    "inner": {
+      "x": 60,
+      "y": 0,
+      "width": 1320,
+      "height": 90,
+      "top": 0,
+      "bottom": 90
+    },
+    "logo": {
+      "x": 75,
+      "y": 0,
+      "width": 274.375,
+      "height": 90,
+      "top": 0,
+      "bottom": 90
+    },
+    "img": {
+      "x": 75,
+      "y": 20,
+      "width": 274.375,
+      "height": 50,
+      "top": 20,
+      "bottom": 70,
+      "className": "logo-display"
+    },
+    "centerDeltaPx": 0,
+    "topSpacePx": 20,
+    "bottomSpacePx": 20,
+    "logoDisplay": "flex",
+    "logoAlignItems": "center"
+  },
+  "scrolled": {
+    "label": "scrolled",
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 90,
+      "top": 0,
+      "bottom": 90
+    },
+    "inner": {
+      "x": 60,
+      "y": 0,
+      "width": 1320,
+      "height": 90,
+      "top": 0,
+      "bottom": 90
+    },
+    "logo": {
+      "x": 75,
+      "y": 0,
+      "width": 274.375,
+      "height": 90,
+      "top": 0,
+      "bottom": 90
+    },
+    "img": {
+      "x": 75,
+      "y": 20,
+      "width": 274.375,
+      "height": 50,
+      "top": 20,
+      "bottom": 70,
+      "className": "logo-scrolled"
+    },
+    "centerDeltaPx": 0,
+    "topSpacePx": 20,
+    "bottomSpacePx": 20,
+    "logoDisplay": "flex",
+    "logoAlignItems": "center"
+  },
+  "mobile": {
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 71,
+      "top": 0,
+      "bottom": 71
+    },
+    "inner": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 70,
+      "top": 0,
+      "bottom": 70
+    },
+    "logo": {
+      "x": 72.8125,
+      "y": 8,
+      "width": 274.375,
+      "height": 54,
+      "top": 8,
+      "bottom": 62
+    },
+    "img": {
+      "x": 72.8125,
+      "y": 10,
+      "width": 274.375,
+      "height": 50,
+      "top": 10,
+      "bottom": 60,
+      "className": "logo-scrolled"
+    },
+    "centerDeltaPx": 0,
+    "topSpacePx": 10,
+    "bottomSpacePx": 10,
+    "attrNavDisplay": "none"
+  }
+}
