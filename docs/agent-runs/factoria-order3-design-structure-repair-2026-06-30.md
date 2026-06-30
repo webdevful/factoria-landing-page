@@ -305,3 +305,6 @@ Validation:
 - Product `npm run design:lint`: PASS with existing no-YAML warning.
 - Product source-design contract: PASS.
 - Local browser proof on `http://127.0.0.1:4382/`: PASS. `.testimonial-controls` is no longer inside `.testimonials-carousel`; `.testimonial-box` overflow is `visible`; controls margin-bottom is `0px`; arrow buttons are `32px` high with visible overflow; glyph boxes sit fully inside the controls; no testimonial-module overflow-hidden ancestor contains the icons. Screenshot: `/tmp/factoria-testimonial-controls-after-local.png`.
+- Product commit `a4c6df3 Repair Factoria testimonial icon clipping` pushed to `origin/main`.
+- Cloudflare production deployment `bd60601e-c721-43f1-966e-38b0c359fcfb` from source `a4c6df3` published.
+- Public browser proof on `https://factoria-landing-page.pages.dev/`: PASS. `.testimonial-controls` is not inside `.testimonials-carousel`; `.testimonial-box` overflow is `visible`; controls margin-bottom is `0px`; arrow buttons are `32px` high with visible overflow; Font Awesome angle glyphs render at 24px and sit fully inside the controls; no testimonial-module overflow-hidden ancestor contains the icons. Screenshot: `/tmp/factoria-testimonial-controls-after-public.png`.
