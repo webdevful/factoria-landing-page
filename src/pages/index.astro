@@ -489,10 +489,10 @@ const blogItems = [
                       </div>
                     ))}
                   </div>
-                  <div class="testimonial-controls">
-                    <button class="testimonial-prev" aria-label="Previous review"><i class="fa fa-angle-left"></i></button>
-                    <button class="testimonial-next" aria-label="Next review"><i class="fa fa-angle-right"></i></button>
-                  </div>
+                </div>
+                <div class="testimonial-controls">
+                  <button class="testimonial-prev" aria-label="Previous review"><i class="fa fa-angle-left"></i></button>
+                  <button class="testimonial-next" aria-label="Next review"><i class="fa fa-angle-right"></i></button>
                 </div>
               </div>
             </div>
@@ -2480,7 +2480,7 @@ const blogItems = [
         z-index: 1;
         border-left: 2px solid var(--yellow);
         padding-left: 48px;
-        overflow: hidden;
+        overflow: visible;
         min-width: 0;
       }
 
@@ -2541,9 +2541,10 @@ const blogItems = [
         text-align: left;
         margin-top: 30px;
         margin-left: 5px;
-        margin-bottom: -8px;
+        margin-bottom: 0;
         display: flex;
         gap: 15px;
+        overflow: visible;
       }
 
       .testimonial-prev,
@@ -2556,11 +2557,13 @@ const blogItems = [
         margin: 0;
         padding: 0;
         cursor: pointer;
-        width: auto;
-        height: auto;
+        width: 24px;
+        height: 32px;
         display: inline-flex;
         align-items: center;
         justify-content: center;
+        line-height: 1;
+        overflow: visible;
         transition: all 250ms ease;
       }
 

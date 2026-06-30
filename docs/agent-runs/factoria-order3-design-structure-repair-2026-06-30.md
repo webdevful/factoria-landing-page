@@ -279,3 +279,29 @@ Validation:
 - Product commit `9bf4a4c Repair Factoria testimonial icon state` pushed to `origin/main`.
 - Cloudflare production deployment `011dbfff-ddbe-40be-9777-0ed03230ddee` from source `9bf4a4c` published.
 - Public browser proof on `https://factoria-landing-page.pages.dev/`: PASS. Initial slide `Jones Adhor` shows `.testimonial-prev.swiper-button-disabled` at opacity `0.5` and active `.testimonial-next` at opacity `1`; `fa fa-angle-left/right` icons render with `Font Awesome 7 Free`, 24px, weight `900`; clicking next changes to `Mones Basel` and disables the next control; clicking previous returns to `Jones Adhor`. Screenshot: `/tmp/factoria-testimonial-icon-state-public.png`.
+
+## Testimonial Slider Icon Clipping Return
+
+Owner returned Factoria again on 2026-06-30 because the testimonial slider arrow icons were visible but their lower edge appeared chopped/overlapped at the bottom.
+
+Root cause:
+
+- Public geometry proof before repair showed `.testimonial-controls` still nested inside `.testimonials-carousel`, while `.testimonials-carousel` had `overflow: hidden`.
+- The controls had `margin-bottom: -8px`; the arrow icon boxes extended 8px below the Swiper viewport, so the overflow-hidden carousel clipped the glyph bottoms.
+- `.testimonial-box` also had `overflow: hidden`, which created a second possible clipping boundary around the controls.
+
+Changes applied:
+
+- Moved `.testimonial-controls` outside the `.swiper.testimonials-carousel` viewport while keeping them inside `.testimonial-box`.
+- Removed the negative bottom margin from `.testimonial-controls` and set controls/buttons to `overflow: visible`.
+- Set testimonial arrow buttons to a stable `24px` by `32px` box so 24px Font Awesome angle glyphs have vertical breathing room.
+- Changed `.testimonial-box` overflow to `visible` so the testimonial module itself cannot crop the arrow controls.
+- Expanded `qa/lpf-source-design-contracts/factoria.json` to enforce the safe controls location, zero bottom margin, visible overflow, stable button height, visible testimonial wrapper overflow, and to forbid the old negative-margin/hidden-wrapper clipping pattern.
+
+Validation:
+
+- Root `npm run factory:lpf:stopline`: PASS after acknowledging `factoria/testimonial-slider` as a repeated section-family escalation scheduled for holistic fidelity tracking.
+- Product `npm run build`: PASS.
+- Product `npm run design:lint`: PASS with existing no-YAML warning.
+- Product source-design contract: PASS.
+- Local browser proof on `http://127.0.0.1:4382/`: PASS. `.testimonial-controls` is no longer inside `.testimonials-carousel`; `.testimonial-box` overflow is `visible`; controls margin-bottom is `0px`; arrow buttons are `32px` high with visible overflow; glyph boxes sit fully inside the controls; no testimonial-module overflow-hidden ancestor contains the icons. Screenshot: `/tmp/factoria-testimonial-controls-after-local.png`.

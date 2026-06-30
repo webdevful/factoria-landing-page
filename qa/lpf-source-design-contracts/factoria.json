@@ -10,7 +10,8 @@
     "The Fatory Team Members hover does not snap to a fast full-card blackout; member info fades with slower ease-in-out timing while the overlay text slides upward over the darkened image.",
     "The Fatory testimonials section places the faint quote ornament on the left/title-side wrapper pseudo-element `.testimonial-items::after`; it is not rendered behind the right testimonial text.",
     "The Fatory testimonial carousel nav icons use source-compatible Font Awesome angle markup: `fa fa-angle-left` and `fa fa-angle-right`.",
-    "The Fatory testimonial carousel is finite (`loop: false`) and Owl's disabled nav control is visibly dimmed at the boundary; the first slide must show the previous control as disabled instead of two equally active black arrows."
+    "The Fatory testimonial carousel is finite (`loop: false`) and Owl's disabled nav control is visibly dimmed at the boundary; the first slide must show the previous control as disabled instead of two equally active black arrows.",
+    "The testimonial controls must not be clipped by the Swiper viewport; the arrow icon boxes must render fully below the testimonial content with no part hidden by an overflow container."
   ],
   "checks": [
     {
@@ -171,6 +172,33 @@
         "opacity": "0.5",
         "pointer-events": "none"
       }
+    },
+    {
+      "selector": ".testimonial-controls",
+      "declarations": {
+        "margin-bottom": "0",
+        "overflow": "visible"
+      }
+    },
+    {
+      "selector": ".testimonial-box",
+      "declarations": {
+        "overflow": "visible"
+      }
+    },
+    {
+      "selector": ".testimonial-prev",
+      "declarations": {
+        "height": "32px",
+        "overflow": "visible"
+      }
+    },
+    {
+      "selector": ".testimonial-next",
+      "declarations": {
+        "height": "32px",
+        "overflow": "visible"
+      }
     }
   ],
   "forbidden": [
@@ -220,6 +248,18 @@
       "selector": ".testimonial-next.swiper-button-disabled",
       "declarations": {
         "opacity": "1"
+      }
+    },
+    {
+      "selector": ".testimonial-controls",
+      "declarations": {
+        "margin-bottom": "-8px"
+      }
+    },
+    {
+      "selector": ".testimonial-box",
+      "declarations": {
+        "overflow": "hidden"
       }
     }
   ],
@@ -286,10 +326,15 @@
     },
     {
       "path": "src/pages/index.astro",
+      "contains": "</div>\n                <div class=\"testimonial-controls\">"
+    },
+    {
+      "path": "src/pages/index.astro",
       "contains": ".testimonial-items-wrap::after"
     }
   ],
   "forbiddenSourceRefs": [
-    "new Swiper('.testimonials-carousel', {\n        slidesPerView: 1,\n        loop: false,\n        rewind: true"
+    "new Swiper('.testimonials-carousel', {\n        slidesPerView: 1,\n        loop: false,\n        rewind: true",
+    "margin-bottom: -8px;"
   ]
 }
