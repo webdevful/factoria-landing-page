@@ -117,6 +117,7 @@ Changes applied:
 
 - Updated hero, portfolio, and testimonial slider arrow controls from legacy `fas` classes to current Font Awesome `fa-solid` angle icons.
 - Changed hero, portfolio, and testimonial Swiper setups to use deterministic `rewind` navigation so visible next/previous controls do not dead-end.
+- Changed Swiper autoplay to stop after user interaction so manual navigation is not overridden by the autoplay timer.
 - Kept the testimonial carousel as one slide per view with source-style left-aligned arrow navigation.
 - Updated Webdevful catalog detail metadata in `src/data/landing-pages.ts` to remove stale sponsor/client strip and non-existent team/client carousel claims, and to list actual Swiper rewind interactions.
 
