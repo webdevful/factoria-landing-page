@@ -31,8 +31,8 @@ const teamItems = [
 ];
 
 const testimonialItems = [
-  { name: 'Jones Adhor', role: 'Plant Manager, Verda Energy', image: '/assets/photos/testimonial-1.jpg', text: 'Factoria delivered our processing facility two weeks ahead of schedule and on budget. Their crews are professional, safety-conscious, and meticulous from start to finish.' },
-  { name: 'Mones Basel', role: 'Director, Basel Logistics', image: '/assets/photos/testimonial-2.jpg', text: 'From planning to commissioning, Factoria handled every detail. The build quality and communication were outstanding — we have already signed them for phase two.' },
+  { name: 'Jones Adhor', role: 'Architect', image: '/assets/photos/testimonial-1.jpg', text: 'Factoria delivered our processing facility two weeks ahead of schedule and on budget. Their crews were professional, safety-conscious, and meticulous from planning through handoff.' },
+  { name: 'Mones Basel', role: 'Designer', image: '/assets/photos/testimonial-2.jpg', text: 'From early planning to commissioning, Factoria handled every detail with discipline. The build quality and communication gave our team real confidence.' },
 ];
 
 const blogItems = [
@@ -41,14 +41,6 @@ const blogItems = [
   { title: 'Sustainable materials reshaping heavy industry and plant construction.', date: '25 Jun, 2026', author: 'Factoria', authorImg: '/assets/photos/team-3.jpg', image: '/assets/photos/blog-3.jpg' },
 ];
 
-const clientMarks = [
-  ['/assets/marks/award.svg', 'Award mark'],
-  ['/assets/marks/craft.svg', 'Craft mark'],
-  ['/assets/marks/chair.svg', 'Chair mark'],
-  ['/assets/marks/trim.svg', 'Trim mark'],
-  ['/assets/marks/style.svg', 'Style mark'],
-  ['/assets/marks/care.svg', 'Care mark'],
-];
 ---
 
 <html lang="en">
@@ -73,7 +65,7 @@ const clientMarks = [
       <div class="container top-grid">
         <ul class="top-left">
           <li><i class="fas fa-phone"></i> <b>Call Us:</b> <a href="tel:+1234567890">+123 456 7890</a></li>
-          <li><i class="fas fa-envelope"></i> <b>Email:</b> <a href="mailto:info@forgeline.com">info@forgeline.com</a></li>
+          <li><i class="fas fa-envelope"></i> <b>Email:</b> <a href="mailto:hello@factoria.build">hello@factoria.build</a></li>
           <li><i class="fas fa-map-marker-alt"></i> California, TX 70240</li>
         </ul>
         <div class="social-style-one" aria-label="Social links">
@@ -211,7 +203,7 @@ const clientMarks = [
           <div class="swiper-wrapper">
             <!-- Slide 1 -->
             <div class="swiper-slide">
-              <img src="/assets/photos/hero-factory-1.jpg" alt="Advanced technology" class="slider-thumb" />
+              <img src="/assets/photos/hero-factory-2.jpg" alt="Advanced technology" class="slider-thumb" />
               <div class="slider-overlay"></div>
               <div class="slide-content-wrap">
                 <div class="container">
@@ -260,7 +252,7 @@ const clientMarks = [
           <div class="about-box">
             <div class="about-grid">
               <div class="about-image wow animate__animated animate__fadeInLeft">
-                <img src="/assets/photos/about-construction.jpg" alt="Construction experience" />
+                <img src="/assets/photos/service-1.jpg" alt="Industrial engineering experience" />
                 <div class="experience-badge">
                   <span class="exp-num">25</span>
                   <span class="exp-txt">Years Work experience in construction</span>
@@ -297,16 +289,16 @@ const clientMarks = [
               <div class="fun-facts-items wow animate__animated animate__fadeInRight">
                 <div class="facts-grid">
                   <div class="fun-fact">
-                    <div class="timer" data-to="28" data-speed="2000">0</div>
+                    <div class="timer" data-to="16" data-speed="2000">0</div>
                     <h4>Ongoing Projects</h4>
                   </div>
                   <div class="fun-fact">
-                    <div class="timer" data-to="56" data-speed="2000">0</div>
+                    <div class="timer" data-to="32" data-speed="2000">0</div>
                     <h4>End Project</h4>
                   </div>
                   <div class="fun-fact">
-                    <div class="timer" data-to="20" data-speed="2000">0</div>
-                    <h4>Upcomming Project</h4>
+                    <div class="timer" data-to="11" data-speed="2000">0</div>
+                    <h4>Upcoming Project</h4>
                   </div>
                 </div>
               </div>
@@ -471,12 +463,11 @@ const clientMarks = [
           <div class="testimonial-items-wrap">
             <div class="testimonial-grid">
               <div class="title-column wow animate__animated animate__fadeInLeft">
-                <span class="section-tag">What Customers Say</span>
-                <h2 id="testimonials-heading">Client Reviews & Testimonials</h2>
+                <h2 id="testimonials-heading">What Customers Say</h2>
                 <p>
-                  Whether at dearest certain spirits is entered in to. Rich fine bred real use too many good. She compliment unaffected expression favourable any.
+                  Industrial clients choose Factoria for steady communication, disciplined site management, and build quality that holds up long after handoff.
                 </p>
-                <a class="theme-btn" href="#portfolio">View All Reviews <i class="fas fa-arrow-right"></i></a>
+                <a class="theme-btn" href="#portfolio">View All <i class="fas fa-arrow-right"></i></a>
               </div>
               <div class="testimonial-box wow animate__animated animate__fadeInRight">
                 <div class="swiper testimonials-carousel">
@@ -552,24 +543,6 @@ const clientMarks = [
         </div>
       </section>
 
-      <!-- Sponsor Carousel -->
-      <section class="clients-area" aria-label="Sponsors">
-        <div class="container">
-          <div class="clients-box">
-            <div class="swiper clients-carousel">
-              <div class="swiper-wrapper">
-                {clientMarks.map(([img, label]) => (
-                  <div class="swiper-slide">
-                    <div class="client-item">
-                      <img src={img} alt={label} width="83" height="83" />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </main>
 
     <!-- Footer -->
@@ -599,7 +572,7 @@ const clientMarks = [
           <p>5919 Trussville Crossings Pkwy, Birmingham AL 35235</p>
           <ul>
             <li><i class="fas fa-map-marker-alt"></i> California, TX 70240</li>
-            <li><i class="fas fa-envelope-open"></i> info@forgeline.com</li>
+            <li><i class="fas fa-envelope-open"></i> hello@factoria.build</li>
           </ul>
         </div>
         
@@ -726,18 +699,10 @@ const clientMarks = [
       new Swiper('.testimonials-carousel', {
         slidesPerView: 1,
         loop: false,
-        autoplay: { delay: 6000, disableOnInteraction: false },
+        speed: 700,
+        autoplay: { delay: 5000, disableOnInteraction: false },
         navigation: { nextEl: '.testimonial-next', prevEl: '.testimonial-prev' },
-      });
-
-      new Swiper('.clients-carousel', {
-        slidesPerView: 2,
-        spaceBetween: 30,
-        autoplay: { delay: 4000, disableOnInteraction: false },
-        breakpoints: {
-          600: { slidesPerView: 2 },
-          1000: { slidesPerView: 3 },
-        },
+        autoHeight: true,
       });
 
       // High-Performance Counter Animation
@@ -923,8 +888,8 @@ const clientMarks = [
       .flaticon-house::before { content: "\f113"; }
 
       :root {
-        --yellow: #ffb606;
-        --yellow-hover: #e09f00;
+        --yellow: #ff3514;
+        --yellow-hover: #d9280c;
         --black: #121418;
         --dark-card: #1a1d24;
         --white: #ffffff;
@@ -981,7 +946,7 @@ const clientMarks = [
       }
 
       .section-header {
-        margin-bottom: 55px;
+        margin-bottom: 48px;
       }
 
       .text-center {
@@ -993,16 +958,32 @@ const clientMarks = [
         font-family: var(--font-display);
         color: var(--yellow);
         text-transform: uppercase;
-        font-size: 14px;
+        font-size: 13px;
         font-weight: 700;
-        letter-spacing: 2px;
-        margin-bottom: 12px;
+        letter-spacing: 0;
+        margin-bottom: 8px;
+      }
+
+      .section-header h2 {
+        font-family: var(--font-display);
+        font-size: clamp(30px, 4vw, 40px);
+        font-weight: 800;
+        line-height: 1.18;
+        color: var(--ink);
+        margin: 0;
+      }
+
+      .section-header.text-white h2,
+      .section-header.text-white .section-desc {
+        color: var(--white);
       }
 
       .section-desc {
-        max-width: 780px;
-        margin: 18px auto 0;
+        max-width: 700px;
+        margin: 14px auto 0;
         color: var(--ink-soft);
+        font-size: 14px;
+        line-height: 1.75;
       }
 
       /* Button Styles */
@@ -1025,17 +1006,17 @@ const clientMarks = [
       .theme-btn:hover {
         background-color: var(--yellow-hover);
         transform: translateY(-2px);
-        box-shadow: 0 10px 20px rgba(255, 182, 6, 0.2);
+        box-shadow: 0 10px 20px rgba(255, 53, 20, 0.16);
       }
 
       .attr-nav .theme-btn {
         background-color: transparent;
         color: var(--white);
-        border: 1.5px solid rgba(255, 255, 255, 0.25);
+        border: 1.5px solid rgba(255, 255, 255, 0.35);
         border-radius: 50px;
-        padding: 11px 28px;
-        font-size: 13px;
-        font-weight: 600;
+        padding: 10px 24px;
+        font-size: 12px;
+        font-weight: 800;
         text-transform: uppercase;
         letter-spacing: 0.5px;
         box-shadow: none;
@@ -1043,11 +1024,11 @@ const clientMarks = [
       }
 
       .attr-nav .theme-btn:hover {
-        background-color: var(--white);
-        color: var(--black);
-        border-color: var(--white);
+        background-color: var(--yellow);
+        color: var(--white);
+        border-color: var(--yellow);
         transform: translateY(-2px);
-        box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+        box-shadow: 0 10px 20px rgba(255, 53, 20, 0.16);
       }
 
       .btn-simple {
@@ -1067,11 +1048,7 @@ const clientMarks = [
 
       /* Top Header Contacts */
       .header-top {
-        background-color: var(--black);
-        color: rgba(255, 255, 255, 0.75);
-        font-size: 13px;
-        padding: 10px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        display: none;
       }
 
       .top-grid {
@@ -1113,21 +1090,22 @@ const clientMarks = [
       /* Main Nav Header */
       .main-header {
         position: absolute;
-        top: auto;
+        top: 0;
         left: 0;
         right: 0;
         z-index: 10;
-        background-color: transparent;
+        background-color: rgba(8, 13, 22, 0.55);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: none;
         transition: all 300ms ease;
       }
 
       .fixed-header {
         position: fixed;
         top: 0;
-        background-color: rgba(18, 20, 24, 0.92);
-        backdrop-filter: blur(12px);
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        background-color: rgba(8, 13, 22, 0.95);
+        box-shadow: 0 10px 30px rgba(18, 20, 24, 0.22);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       }
 
       .header-inner {
@@ -1143,6 +1121,15 @@ const clientMarks = [
 
       .logo-scrolled {
         display: none;
+      }
+
+      .logo-display {
+        display: block;
+      }
+
+      .logo img {
+        width: 170px;
+        height: auto;
       }
 
       .fixed-header .logo-display {
@@ -1193,9 +1180,9 @@ const clientMarks = [
       .navigation a {
         font-family: var(--font-display);
         color: var(--white);
-        font-weight: 500;
+        font-weight: 700;
         text-transform: none;
-        font-size: 15px;
+        font-size: 13px;
         letter-spacing: 0px;
         padding: 8px 0;
         position: relative;
@@ -1246,7 +1233,7 @@ const clientMarks = [
 
       @media (min-width: 1024px) {
         .header-inner {
-          height: 90px;
+          height: 72px;
           padding: 0 15px;
           align-items: stretch;
         }
@@ -1455,8 +1442,8 @@ const clientMarks = [
       }
 
       .hero-slider {
-        height: 100vh;
-        min-height: 700px;
+        height: 720px;
+        min-height: 720px;
       }
 
       .hero-slider:not(.swiper-initialized) .swiper-slide:not(:first-child) {
@@ -1477,7 +1464,7 @@ const clientMarks = [
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transform: scale(1.08);
+        transform: scale(1.04);
         transition: transform 6000ms ease;
       }
 
@@ -1488,7 +1475,10 @@ const clientMarks = [
       .slider-overlay {
         position: absolute;
         inset: 0;
-        background: radial-gradient(circle at 30% 30%, rgba(18, 20, 24, 0.5), var(--black) 90%);
+        background:
+          radial-gradient(circle at 72% 48%, rgba(255, 53, 20, 0.18), transparent 34%),
+          linear-gradient(90deg, rgba(6, 11, 20, 0.74), rgba(6, 11, 20, 0.44)),
+          rgba(6, 11, 20, 0.22);
         z-index: 2;
       }
 
@@ -1496,11 +1486,13 @@ const clientMarks = [
         position: relative;
         z-index: 3;
         width: 100%;
-        padding-top: 80px;
+        padding-top: 0;
       }
 
       .slide-text {
-        max-width: 680px;
+        max-width: 620px;
+        margin: 0;
+        text-align: left;
       }
 
       .slide-text h1,
@@ -1565,14 +1557,17 @@ const clientMarks = [
 
       .slide-text h1 {
         font-family: var(--font-display);
-        font-size: clamp(40px, 8vw, 75px);
+        font-size: clamp(34px, 5vw, 58px);
         font-weight: 800;
-        line-height: 1.1;
-        margin-bottom: 20px;
+        line-height: 1.04;
+        margin-bottom: 18px;
       }
 
       .slide-text h1 strong {
         color: var(--yellow);
+        display: block;
+        font-size: clamp(54px, 8vw, 90px);
+        text-transform: uppercase;
       }
 
       .slide-text p {
@@ -1584,17 +1579,31 @@ const clientMarks = [
       .slide-btns {
         display: flex;
         align-items: center;
+        justify-content: flex-start;
         gap: 25px;
       }
 
+      .slide-btns .theme-btn {
+        background-color: var(--yellow);
+        color: var(--white);
+        border-radius: 0;
+        padding: 14px 28px;
+      }
+
+      .slide-btns .theme-btn:hover {
+        background-color: var(--white);
+        color: var(--black);
+      }
+
       .video-play-btn {
+        display: grid;
         width: 55px;
         height: 55px;
         border-radius: 999px;
         border: 2px solid var(--white);
         background: transparent;
         color: var(--white);
-        display: grid;
+        place-items: center;
         place-items: center;
         cursor: pointer;
         font-size: 16px;
@@ -1655,6 +1664,7 @@ const clientMarks = [
       .about-area {
         background-color: var(--white);
         overflow: hidden;
+        padding-top: 115px;
       }
 
       .about-grid {
@@ -1669,26 +1679,30 @@ const clientMarks = [
       }
 
       .about-image img {
-        border-radius: 4px;
+        width: 100%;
+        aspect-ratio: 1 / 0.84;
+        object-fit: cover;
+        object-position: center center;
+        border-radius: 0;
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
       }
 
       .experience-badge {
         position: absolute;
-        bottom: -20px;
-        right: -20px;
+        bottom: -28px;
+        right: -24px;
         background-color: var(--yellow);
-        color: var(--black);
-        padding: 30px;
-        max-width: 250px;
-        box-shadow: 0 15px 30px rgba(255, 182, 6, 0.35);
-        border-radius: 4px;
+        color: var(--white);
+        padding: 24px 30px;
+        max-width: 238px;
+        box-shadow: 0 15px 30px rgba(255, 53, 20, 0.24);
+        border-radius: 0;
       }
 
       .exp-num {
         display: block;
         font-family: var(--font-display);
-        font-size: 55px;
+        font-size: 72px;
         font-weight: 800;
         line-height: 1;
         margin-bottom: 5px;
@@ -1699,21 +1713,24 @@ const clientMarks = [
         font-size: 13px;
         font-weight: 700;
         text-transform: uppercase;
-        line-height: 1.3;
+        line-height: 1.25;
         display: block;
       }
 
       .about-info h2 {
         font-family: var(--font-display);
-        font-size: clamp(28px, 4vw, 42px);
+        font-size: clamp(30px, 4vw, 46px);
         font-weight: 800;
         line-height: 1.2;
         margin-bottom: 25px;
       }
 
       .about-info blockquote {
-        border-left: 4px solid var(--yellow);
-        padding-left: 24px;
+        border-left: 3px solid var(--yellow);
+        padding-left: 26px;
+        background: linear-gradient(90deg, rgba(255, 53, 20, 0.06), transparent 58%);
+        padding-top: 18px;
+        padding-bottom: 18px;
       }
 
       .about-info blockquote p {
@@ -1751,9 +1768,10 @@ const clientMarks = [
       }
 
       .work-with-us-area .content-box {
-        background-color: var(--paper);
-        border-radius: 4px;
-        padding: 60px;
+        background-color: #f7f8fb;
+        border-radius: 0;
+        padding: 50px 55px;
+        border-bottom: 3px solid var(--yellow);
       }
 
       .cta-grid {
@@ -1782,14 +1800,14 @@ const clientMarks = [
         font-family: var(--font-display);
         font-size: 60px;
         font-weight: 800;
-        color: var(--ink);
+        color: var(--yellow);
         line-height: 1;
         margin-bottom: 10px;
       }
 
       .fun-fact .timer::after {
         content: "+";
-        color: var(--yellow);
+        color: var(--ink);
         margin-left: 2px;
       }
 
@@ -1804,7 +1822,9 @@ const clientMarks = [
 
       /* Services Tabs Area */
       .service-area {
-        background-color: var(--paper);
+        background-color: #f4f5f8;
+        border-top: 1px solid #e7eaf0;
+        border-bottom: 1px solid #e7eaf0;
       }
 
       .services-grid {
@@ -1835,7 +1855,7 @@ const clientMarks = [
         align-items: center;
         gap: 12px;
         cursor: pointer;
-        border-radius: 4px;
+        border-radius: 0;
         transition: all 250ms ease;
       }
 
@@ -1854,12 +1874,12 @@ const clientMarks = [
 
       .services-nav .nav-link.active {
         background-color: var(--yellow);
-        color: var(--black);
+        color: var(--white);
         border-color: var(--yellow);
       }
 
       .services-nav .nav-link.active i {
-        color: var(--black);
+        color: var(--white);
       }
 
       .services-content .tab-pane {
@@ -1877,8 +1897,9 @@ const clientMarks = [
         align-items: center;
         background-color: var(--white);
         padding: 50px;
-        border-radius: 4px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+        border-radius: 0;
+        box-shadow: 0 18px 45px rgba(18, 20, 24, 0.08);
+        border-bottom: 3px solid var(--yellow);
       }
 
       .tab-pane-grid .info h3 {
@@ -1896,7 +1917,10 @@ const clientMarks = [
       }
 
       .tab-pane-grid .thumb img {
-        border-radius: 4px;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        border-radius: 0;
       }
 
       /* Work Process Area */
@@ -2346,30 +2370,33 @@ const clientMarks = [
 
       .testimonial-grid {
         display: grid;
-        grid-template-columns: 1.2fr 1.8fr;
+        grid-template-columns: 5fr 7fr;
         gap: 60px;
         align-items: center;
       }
 
       .title-column h2 {
         font-family: var(--font-display);
-        font-size: clamp(28px, 4.2vw, 40px);
+        font-size: clamp(32px, 4vw, 40px);
         font-weight: 800;
-        line-height: 1.2;
-        margin: 8px 0 20px;
+        line-height: 1.16;
+        margin: 0 0 18px;
       }
 
       .title-column p {
         color: var(--ink-soft);
-        font-size: 15px;
-        margin-bottom: 30px;
+        font-size: 14px;
+        line-height: 1.75;
+        margin-bottom: 24px;
       }
 
       .testimonial-box {
         position: relative;
         z-index: 1;
         border-left: 2px solid var(--yellow);
-        padding-left: 50px;
+        padding-left: 48px;
+        overflow: hidden;
+        min-width: 0;
       }
 
       .testimonial-box::after {
@@ -2386,11 +2413,26 @@ const clientMarks = [
       }
 
       .testimonial-item p {
-        font-size: 25px;
-        line-height: 1.6;
+        font-size: clamp(21px, 2.4vw, 27px);
+        line-height: 1.58;
         font-style: italic;
         color: var(--ink);
         margin-bottom: 30px;
+      }
+
+      .testimonials-carousel {
+        overflow: hidden;
+        width: 100%;
+        min-width: 0;
+      }
+
+      .testimonials-carousel .swiper-slide {
+        height: auto;
+        min-width: 0;
+      }
+
+      .testimonial-item {
+        height: 100%;
       }
 
       .provider {
@@ -2538,29 +2580,6 @@ const clientMarks = [
 
       .blog-item h3 a:hover {
         color: var(--yellow);
-      }
-
-      /* Sponsor clients area */
-      .clients-area {
-        background-color: var(--white);
-        padding: 40px 0 95px;
-      }
-
-      .clients-box {
-        border-top: 1px solid var(--line);
-        border-bottom: 1px solid var(--line);
-        padding: 40px 0;
-      }
-
-      .client-item {
-        display: grid;
-        place-items: center;
-        opacity: 0.6;
-        transition: opacity 250ms ease;
-      }
-
-      .client-item:hover {
-        opacity: 1;
       }
 
       /* Footer */
@@ -2823,16 +2842,81 @@ const clientMarks = [
 
       /* Responsive Layout Rules */
       @media (max-width: 1024px) {
+        section {
+          padding: 70px 0;
+        }
+
+        .hero-slider {
+          height: 560px;
+          min-height: 560px;
+        }
+
+        .main-header,
+        .fixed-header {
+          position: relative;
+          top: auto;
+          background-color: var(--white);
+          border-bottom: 1px solid rgba(18, 20, 24, 0.08);
+          box-shadow: 0 6px 18px rgba(18, 20, 24, 0.08);
+        }
+
         .header-inner {
-          grid-template-columns: auto auto;
+          grid-template-columns: auto 1fr auto;
+          min-height: 58px;
+          padding-top: 8px;
+          padding-bottom: 8px;
+        }
+
+        .logo {
+          grid-column: 2;
+          grid-row: 1;
+          justify-self: center;
+        }
+
+        .logo-display {
+          display: none;
+        }
+
+        .logo-scrolled,
+        .fixed-header .logo-scrolled {
+          display: block;
+        }
+
+        .logo img {
+          width: 132px;
         }
 
         .attr-nav {
+          display: flex;
+          grid-column: 3;
+          grid-row: 1;
+          justify-self: end;
+          gap: 0;
+        }
+
+        .search-btn {
           display: none;
+        }
+
+        .attr-nav .theme-btn,
+        .fixed-header .attr-nav .theme-btn {
+          color: var(--ink);
+          border-color: rgba(18, 20, 24, 0.16);
+          padding: 8px 14px;
+          font-size: 10px;
+          line-height: 1;
+          background-color: var(--white);
         }
 
         .menu-toggle {
           display: block;
+          grid-column: 1;
+          grid-row: 1;
+          justify-self: start;
+        }
+
+        .menu-toggle span {
+          background-color: var(--ink);
         }
 
         .main-menu {
@@ -2840,6 +2924,7 @@ const clientMarks = [
           display: none;
           width: 100%;
           padding-top: 15px;
+          background-color: var(--white);
         }
 
         .main-menu.is-open {
@@ -2852,12 +2937,13 @@ const clientMarks = [
         }
 
         .navigation li {
-          border-top: 1px solid rgba(255, 255, 255, 0.08);
+          border-top: 1px solid rgba(18, 20, 24, 0.08);
         }
 
         .navigation a {
           display: block;
           padding: 12px 0;
+          color: var(--ink);
         }
 
         .dropdown-menu {
@@ -2879,7 +2965,7 @@ const clientMarks = [
         }
 
         .dropdown-menu li a {
-          color: rgba(255, 255, 255, 0.7) !important;
+          color: rgba(31, 34, 41, 0.75) !important;
           padding: 8px 15px !important;
         }
 
@@ -2902,7 +2988,7 @@ const clientMarks = [
 
         .col-menu {
           border-right: 0 !important;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+          border-bottom: 1px solid rgba(18, 20, 24, 0.06);
           padding: 10px 0 !important;
         }
 
@@ -2911,14 +2997,14 @@ const clientMarks = [
         }
 
         .col-menu .title {
-          color: var(--white) !important;
+          color: var(--ink) !important;
           font-size: 13px !important;
           margin-bottom: 8px !important;
           padding-left: 15px;
         }
 
         .menu-col li a {
-          color: rgba(255, 255, 255, 0.7) !important;
+          color: rgba(31, 34, 41, 0.75) !important;
           padding: 6px 15px 6px 25px !important;
         }
 
@@ -2943,6 +3029,39 @@ const clientMarks = [
           text-align: center;
         }
 
+        .about-grid,
+        .services-grid,
+        .tab-pane-grid,
+        .process-grid,
+        .testimonial-grid,
+        .blog-grid,
+        .footer-middle-grid {
+          gap: 34px;
+        }
+
+        .work-with-us-area .content-box,
+        .tab-pane-grid {
+          padding: 40px;
+        }
+
+        .testimonial-box {
+          border-left: 0;
+          border-top: 2px solid var(--yellow);
+          padding-left: 0;
+          padding-top: 28px;
+        }
+
+        .testimonial-box::after {
+          left: 0;
+          top: 6px;
+          font-size: 74px;
+        }
+
+        .testimonial-item p {
+          font-size: 22px;
+          line-height: 1.55;
+        }
+
         .newsletter-form {
           margin: 0 auto;
         }
@@ -2954,6 +3073,86 @@ const clientMarks = [
       }
 
       @media (max-width: 768px) {
+        section {
+          padding: 58px 0;
+        }
+
+        .hero-slider {
+          height: 540px;
+          min-height: 540px;
+        }
+
+        .slide-text p {
+          margin-bottom: 24px;
+        }
+
+        .slide-text {
+          max-width: 100%;
+          margin: 0 auto;
+          padding: 0 20px;
+          text-align: center;
+        }
+
+        .slide-text h1 {
+          font-size: 31px;
+        }
+
+        .slide-text h1 strong {
+          color: var(--white);
+          font-size: 44px;
+        }
+
+        .slide-btns {
+          justify-content: center;
+        }
+
+        .video-play-btn {
+          width: 48px;
+          height: 48px;
+        }
+
+        .about-area {
+          padding-top: 68px;
+        }
+
+        .about-image img {
+          aspect-ratio: 1 / 0.76;
+        }
+
+        .work-with-us-area .content-box,
+        .tab-pane-grid {
+          padding: 30px 22px;
+        }
+
+        .section-header {
+          margin-bottom: 34px;
+        }
+
+        .section-header h2,
+        .title-column h2 {
+          font-size: 30px;
+        }
+
+        .section-desc,
+        .title-column p {
+          font-size: 14px;
+        }
+
+        .testimonial-item p {
+          font-size: 18px;
+          line-height: 1.55;
+        }
+
+        .provider {
+          gap: 14px;
+          margin-top: 22px;
+        }
+
+        .provider .thumb img {
+          width: 60px;
+          height: 60px;
+        }
+
         .header-top {
           display: none;
         }
