@@ -276,3 +276,6 @@ Validation:
 - Product `npm run design:lint`: PASS with existing no-YAML warning.
 - Product source-design contract: PASS.
 - Local browser proof on `http://127.0.0.1:4381/`: PASS. Initial slide `Jones Adhor` shows `.testimonial-prev.swiper-button-disabled` at opacity `0.5` and active `.testimonial-next` at opacity `1`; clicking next changes to `Mones Basel` and disables the next control; clicking previous returns to `Jones Adhor`. Screenshot: `/tmp/factoria-testimonial-icon-state-local.png`.
+- Product commit `9bf4a4c Repair Factoria testimonial icon state` pushed to `origin/main`.
+- Cloudflare production deployment `011dbfff-ddbe-40be-9777-0ed03230ddee` from source `9bf4a4c` published.
+- Public browser proof on `https://factoria-landing-page.pages.dev/`: PASS. Initial slide `Jones Adhor` shows `.testimonial-prev.swiper-button-disabled` at opacity `0.5` and active `.testimonial-next` at opacity `1`; `fa fa-angle-left/right` icons render with `Font Awesome 7 Free`, 24px, weight `900`; clicking next changes to `Mones Basel` and disables the next control; clicking previous returns to `Jones Adhor`. Screenshot: `/tmp/factoria-testimonial-icon-state-public.png`.
