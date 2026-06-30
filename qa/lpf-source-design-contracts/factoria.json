@@ -5,20 +5,45 @@
   "sourceFacts": [
     "The Fatory Team Members source card keeps the social links inside a white horizontal bar that overlaps the lower part of each image card.",
     "The social bar is not a loose icon row below the card and does not replace Font Awesome social icons with generated art.",
-    "The Fatory Team Members heading has red divider pseudo-elements under the H2: a 40px line plus a short 5px segment.",
+    "The repeated Fatory section heading pattern uses `.site-heading h2` with Inter, 52px desktop font size, 600 weight, 62.4px line-height, 1px letter spacing, 20px bottom padding, and red divider pseudo-elements under the H2: a 40px line plus a short 5px segment.",
+    "The red divider is a source-wide section-title system for repeated centered section headings including Work Process, Portfolio, Team Members, and Blog; it is not a Team-only exception.",
     "The Fatory Team Members hover does not snap to a fast full-card blackout; member info fades with slower ease-in-out timing while the overlay text slides upward over the darkened image."
   ],
   "checks": [
     {
-      "selector": ".team-area .section-header h2",
+      "selector": ".section-header",
       "declarations": {
-        "position": "relative",
-        "display": "table",
-        "padding-bottom": "28px"
+        "margin": "-5px 0 60px",
+        "overflow": "hidden"
       }
     },
     {
-      "selector": ".team-area .section-header h2::before",
+      "selector": ".section-tag",
+      "declarations": {
+        "display": "block",
+        "font-family": "var(--font-display)",
+        "font-size": "20px",
+        "font-weight": "600",
+        "line-height": "1.2",
+        "margin-bottom": "20px"
+      }
+    },
+    {
+      "selector": ".section-header h2",
+      "declarations": {
+        "font-family": "var(--font-display)",
+        "font-size": "52px",
+        "font-weight": "600",
+        "line-height": "1.2",
+        "letter-spacing": "1px",
+        "text-transform": "capitalize",
+        "display": "inline-block",
+        "position": "relative",
+        "padding-bottom": "20px"
+      }
+    },
+    {
+      "selector": ".section-header h2::before",
       "declarations": {
         "content": "\"\"",
         "position": "absolute",
@@ -28,7 +53,7 @@
       }
     },
     {
-      "selector": ".team-area .section-header h2::after",
+      "selector": ".section-header h2::after",
       "declarations": {
         "content": "\"\"",
         "position": "absolute",
@@ -93,6 +118,24 @@
   ],
   "forbidden": [
     {
+      "selector": ".section-header h2",
+      "declarations": {
+        "font-size": "clamp(30px, 4vw, 40px)"
+      }
+    },
+    {
+      "selector": ":root",
+      "declarations": {
+        "--font-display": "'Poppins', 'Inter', system-ui, sans-serif"
+      }
+    },
+    {
+      "selector": ":root",
+      "declarations": {
+        "--font-body": "'Nunito', 'Inter', system-ui, sans-serif"
+      }
+    },
+    {
       "selector": ".team-item .social",
       "declarations": {
         "border-top": "1px solid var(--line)"
@@ -108,11 +151,23 @@
   "sourceChecks": [
     {
       "path": "src/pages/index.astro",
-      "contains": ".team-area .section-header h2::before"
+      "contains": ".section-header h2::before"
     },
     {
       "path": "src/pages/index.astro",
-      "contains": ".team-area .section-header h2::after"
+      "contains": ".section-header h2::after"
+    },
+    {
+      "path": "src/pages/index.astro",
+      "contains": "font-size: 52px;"
+    },
+    {
+      "path": "src/pages/index.astro",
+      "contains": "letter-spacing: 1px;"
+    },
+    {
+      "path": "src/pages/index.astro",
+      "contains": "--font-display: 'Inter', system-ui, sans-serif;"
     },
     {
       "path": "src/pages/index.astro",

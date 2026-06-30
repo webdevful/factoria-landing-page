@@ -48,7 +48,7 @@ const blogItems = [
     <meta charset="utf-8" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Nunito:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/brand/favicon-16x16.png" />
@@ -900,8 +900,8 @@ const blogItems = [
         --ink: #1f2229;
         --ink-soft: #555c66;
         --line: #e2e8f0;
-        --font-display: 'Poppins', 'Inter', system-ui, sans-serif;
-        --font-body: 'Nunito', 'Inter', system-ui, sans-serif;
+        --font-display: 'Inter', system-ui, sans-serif;
+        --font-body: 'Inter', system-ui, sans-serif;
       }
 
       * {
@@ -919,7 +919,10 @@ const blogItems = [
       }
 
       body {
-        line-height: 1.7;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 30px;
+        color: #666666;
         overflow-x: hidden;
       }
 
@@ -949,7 +952,8 @@ const blogItems = [
       }
 
       .section-header {
-        margin-bottom: 48px;
+        margin: -5px 0 60px;
+        overflow: hidden;
       }
 
       .text-center {
@@ -957,23 +961,49 @@ const blogItems = [
       }
 
       .section-tag {
-        display: inline-block;
+        display: block;
         font-family: var(--font-display);
         color: var(--yellow);
         text-transform: uppercase;
-        font-size: 13px;
-        font-weight: 700;
+        font-size: 20px;
+        font-weight: 600;
         letter-spacing: 0;
-        margin-bottom: 8px;
+        line-height: 1.2;
+        margin-bottom: 20px;
       }
 
       .section-header h2 {
         font-family: var(--font-display);
-        font-size: clamp(30px, 4vw, 40px);
-        font-weight: 800;
-        line-height: 1.18;
-        color: var(--ink);
+        font-size: 52px;
+        font-weight: 600;
+        line-height: 1.2;
+        letter-spacing: 1px;
+        text-transform: capitalize;
+        color: #232323;
+        display: inline-block;
+        position: relative;
+        padding-bottom: 20px;
         margin: 0;
+      }
+
+      .section-header h2::before,
+      .section-header h2::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        height: 2px;
+        background-color: var(--yellow);
+      }
+
+      .section-header h2::before {
+        width: 40px;
+        margin-left: -25px;
+      }
+
+      .section-header h2::after {
+        width: 5px;
+        margin-left: 20px;
       }
 
       .section-header.text-white h2,
@@ -983,10 +1013,10 @@ const blogItems = [
 
       .section-desc {
         max-width: 700px;
-        margin: 14px auto 0;
-        color: var(--ink-soft);
-        font-size: 14px;
-        line-height: 1.75;
+        margin: 20px auto 0;
+        color: #666666;
+        font-size: 15px;
+        line-height: 30px;
       }
 
       /* Button Styles */
@@ -2230,38 +2260,6 @@ const blogItems = [
         overflow: hidden;
       }
 
-      .team-area .section-header h2 {
-        position: relative;
-        display: table;
-        margin-left: auto;
-        margin-right: auto;
-        padding-bottom: 28px;
-      }
-
-      .team-area .section-header h2::before,
-      .team-area .section-header h2::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        height: 2px;
-        background-color: var(--yellow);
-      }
-
-      .team-area .section-header h2::before {
-        width: 40px;
-        margin-left: -25px;
-      }
-
-      .team-area .section-header h2::after {
-        width: 5px;
-        margin-left: 22px;
-      }
-
-      .team-area .section-desc {
-        margin-top: 18px;
-      }
-
       .team-items {
         margin-top: 50px;
       }
@@ -3198,12 +3196,14 @@ const blogItems = [
 
         .section-header h2,
         .title-column h2 {
-          font-size: 30px;
+          font-size: 32px;
+          line-height: 1.2;
         }
 
         .section-desc,
         .title-column p {
-          font-size: 14px;
+          font-size: 15px;
+          line-height: 28px;
         }
 
         .testimonial-item p {

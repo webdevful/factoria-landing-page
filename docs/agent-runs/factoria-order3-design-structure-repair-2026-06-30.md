@@ -190,3 +190,30 @@ Validation:
 - Product `npm run design:lint`: PASS with existing warning: `No YAML content found`.
 - Source-design contract: `LPF_REQUIRE_SOURCE_TYPOGRAPHY=1 LPF_LANDING_PAGE_SLUG=factoria python3 .../tools/check_lpf_conversion_contract.py --project-root .../factoria/repo --landing-page-slug factoria`: PASS.
 - Local browser proof on `http://127.0.0.1:4374/`: PASS. The eyebrow remains above the title, the description remains below the title, H2 divider pseudo-elements are `40px + 5px`, hover is intermediate at `250ms` (`infoOpacity 0.692`, `overlayOpacity 0.308`) and completes by `900ms`.
+
+## Global Heading Typography Loop
+
+Owner returned Factoria again on 2026-06-30 because the horizontal red title decoration and source typography were still not applied page-wide. The previous heading repair only codified the Team Members H2, while the original Fatory source uses the `.site-heading h2` system across repeated section headings.
+
+Source measurements:
+
+- Live/source Fatory repeated section headings (`Work Process`, `Latest Work`, `Team Members`, `Latest News`) use Inter, `52px`, weight `600`, line-height `62.4px`, `1px` letter spacing, `text-transform: capitalize`, `padding-bottom: 20px`, and centered H2 pseudo-elements: `::before` width `40px`, `::after` width `5px`, both `2px` high and red `rgb(255, 53, 20)`.
+- Previous Factoria global `.section-header h2` used the smaller Poppins/Nunito-derived scale and had no global pseudo-elements; only `.team-area .section-header h2` carried the prior divider.
+
+Changes applied:
+
+- Changed the page typography tokens to source-derived Inter for display and body text.
+- Updated body copy to the source-like `15px` / `30px` baseline.
+- Rebuilt global `.section-header`, `.section-tag`, `.section-header h2`, and `.section-desc` around the source `.site-heading` measurements.
+- Added the red 40px + 5px pseudo-divider to every repeated `.section-header h2` section title.
+- Removed the Team-only H2 divider override so the title system is now page-level instead of section-level.
+- Extended `qa/lpf-source-design-contracts/factoria.json` to enforce global section-heading typography/divider checks and forbid the previous undersized Poppins/Nunito heading system.
+
+Validation:
+
+- Product `npm run build`: PASS.
+- Product `npm run design:lint`: PASS with existing warning: `No YAML content found`.
+- Root `npm run qa:lpf-memory-loop -- --ticket factoria-global-heading-typography-loop`: PASS. STAMP MLP ticket=factoria-global-heading-typography-loop lane=LPF at=2026-06-30 digest=069f5bb6.
+- Root `npm run qa:lpf-dispatch-preflight -- --ticket docs/factory-orders/2026-06-30-lpf-repair-factoria-global-heading-typography-loop.md`: PASS. STAMP DPP ticket=2026-06-30-lpf-repair-factoria-global-heading-typography-loop lane=LPF at=2026-06-30 digest=f59f6980.
+- Source-design contract: `LPF_REQUIRE_SOURCE_TYPOGRAPHY=1 LPF_LANDING_PAGE_SLUG=factoria python3 .../tools/check_lpf_conversion_contract.py --project-root .../factoria/repo --landing-page-slug factoria`: PASS.
+- Local browser proof on `http://127.0.0.1:4375/`: PASS. Desktop `services`, `process`, `portfolio`, `team`, and `blog` section H2s render Inter `52px`, weight `600`, line-height `62.4px`, `1px` letter spacing, source red pseudo-divider `40px + 5px`, and block-level eyebrow above title. Mobile keeps Inter, weight `600`, red pseudo-divider, and source order with responsive `32px` headings.
