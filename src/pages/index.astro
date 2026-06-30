@@ -241,8 +241,8 @@ const blogItems = [
             </div>
           </div>
           <!-- Slider Navigation -->
-          <button class="hero-prev" aria-label="Previous slide"><i class="fas fa-angle-left"></i></button>
-          <button class="hero-next" aria-label="Next slide"><i class="fas fa-angle-right"></i></button>
+          <button class="hero-prev" aria-label="Previous slide"><i class="fa-solid fa-angle-left"></i></button>
+          <button class="hero-next" aria-label="Next slide"><i class="fa-solid fa-angle-right"></i></button>
         </div>
       </section>
 
@@ -407,8 +407,8 @@ const blogItems = [
                 ))}
               </div>
             </div>
-            <button class="portfolio-prev" aria-label="Previous work"><i class="fas fa-angle-left"></i></button>
-            <button class="portfolio-next" aria-label="Next work"><i class="fas fa-angle-right"></i></button>
+            <button class="portfolio-prev" aria-label="Previous work"><i class="fa-solid fa-angle-left"></i></button>
+            <button class="portfolio-next" aria-label="Next work"><i class="fa-solid fa-angle-right"></i></button>
           </div>
         </div>
       </section>
@@ -490,8 +490,8 @@ const blogItems = [
                     ))}
                   </div>
                   <div class="testimonial-controls">
-                    <button class="testimonial-prev" aria-label="Previous review"><i class="fas fa-angle-left"></i></button>
-                    <button class="testimonial-next" aria-label="Next review"><i class="fas fa-angle-right"></i></button>
+                    <button class="testimonial-prev" aria-label="Previous review"><i class="fa-solid fa-angle-left"></i></button>
+                    <button class="testimonial-next" aria-label="Next review"><i class="fa-solid fa-angle-right"></i></button>
                   </div>
                 </div>
               </div>
@@ -676,7 +676,8 @@ const blogItems = [
       // Swiper Sliders
       new Swiper('.hero-slider', {
         slidesPerView: 1,
-        loop: true,
+        loop: false,
+        rewind: true,
         effect: 'fade',
         fadeEffect: {
           crossFade: true
@@ -689,6 +690,7 @@ const blogItems = [
       new Swiper('.portfolio-carousel', {
         slidesPerView: 1,
         spaceBetween: 30,
+        rewind: true,
         autoplay: { delay: 5000, disableOnInteraction: false },
         navigation: { nextEl: '.portfolio-next', prevEl: '.portfolio-prev' },
         breakpoints: {
@@ -699,6 +701,7 @@ const blogItems = [
       new Swiper('.testimonials-carousel', {
         slidesPerView: 1,
         loop: false,
+        rewind: true,
         speed: 700,
         autoplay: { delay: 5000, disableOnInteraction: false },
         navigation: { nextEl: '.testimonial-next', prevEl: '.testimonial-prev' },

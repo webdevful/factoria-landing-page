@@ -108,3 +108,21 @@ Live-sync return:
 ## Current State
 
 Fifth repair pass is committed, pushed, deployed, and public-browser-visible. The owner-returned logo-strip and testimonial behavior defects are fixed on the canonical Cloudflare demo, and the product repo is clean on `main`/`origin/main`. Mobile/tablet automated visual-diff still fails and remains the next source-fidelity blocker before owner acceptance.
+
+## Slider Interactivity Return
+
+Owner returned Factoria again on 2026-06-30 for broken slider behavior, broken testimonial slider icon, and stale detail-page text/tag metadata. Created factory ticket `docs/factory-orders/2026-06-30-lpf-repair-factoria-slider-interactivity.md` in `webdevful-astro-main`.
+
+Changes applied:
+
+- Updated hero, portfolio, and testimonial slider arrow controls from legacy `fas` classes to current Font Awesome `fa-solid` angle icons.
+- Changed hero, portfolio, and testimonial Swiper setups to use deterministic `rewind` navigation so visible next/previous controls do not dead-end.
+- Kept the testimonial carousel as one slide per view with source-style left-aligned arrow navigation.
+- Updated Webdevful catalog detail metadata in `src/data/landing-pages.ts` to remove stale sponsor/client strip and non-existent team/client carousel claims, and to list actual Swiper rewind interactions.
+
+Validation:
+
+- Product `npm run build`: PASS.
+- Product `npm run design:lint`: PASS with existing warning: `No YAML content found`.
+- Playwright local slider proof on `http://127.0.0.1:4353/`: PASS. Hero next/previous changed active heading; portfolio next/previous changed active project; testimonials next/previous changed active reviewer.
+- Testimonial icon proof: `.testimonial-next i` uses `fa-solid fa-angle-right`, Font Awesome 7 Free renders the angle glyph, and the button is not disabled.
