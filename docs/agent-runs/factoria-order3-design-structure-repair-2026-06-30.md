@@ -66,6 +66,8 @@ Live-sync return:
 - Confirmed local `main` equaled `origin/main`, but the repaired files were still uncommitted, so GitHub/Cloudflare could not have received the latest repair.
 - Confirmed public `https://factoria-landing-page.pages.dev/` still contained stale DOM before release-sync: `clients-area`, `clients-carousel`, `Client Reviews & Testimonials`, and `info@forgeline.com`.
 - Created live-sync repair ticket `docs/factory-orders/2026-06-30-lpf-repair-factoria-live-sync.md` in `webdevful-astro-main`.
+- Committed and pushed product repo repair commit `0a4c9d4` to `origin/main`.
+- Deployed the product manually to Cloudflare Pages because GitHub push did not immediately update the public demo. Deployment `b8105d78` completed and canonical `https://factoria-landing-page.pages.dev/` now serves the fixed DOM.
 
 ## Validation
 
@@ -84,6 +86,9 @@ Live-sync return:
 - `npm run qa:lpf-visual-diff -- --slug factoria --write-results` after pass 5: FAIL. Desktop OK; mobile/tablet still fail on SSIM/band correlation structural drift.
 - `npm run qa:lpf-rendered-output -- --url http://127.0.0.1:4353/ --output-dir qa/lpf-rendered-output/factoria-live-sync-release --expect-visible-text Factoria --forbid-placeholder`: PASS.
 - Built `dist/index.html` DOM proof before product commit: no `clients-area`, no `clients-carousel`, no `Client Reviews & Testimonials`, no `info@forgeline.com`; `What Customers Say` and `hello@factoria.build` are present.
+- Public DOM proof after Cloudflare deploy: canonical `https://factoria-landing-page.pages.dev/` has no `clients-area`, no `clients-carousel`, no `Client Reviews & Testimonials`, no `info@forgeline.com`; `What Customers Say` and `hello@factoria.build` are present.
+- `npm run qa:lpf-rendered-output -- --url https://factoria-landing-page.pages.dev/ --output-dir qa/lpf-rendered-output/factoria-live-sync-public --expect-visible-text Factoria --forbid-placeholder`: PASS.
+- `npm run qa:lpf-visual-diff -- --slug factoria --write-results` after release-sync: FAIL. Desktop OK; mobile/tablet still fail on SSIM/band correlation structural drift.
 
 ## Evidence
 
@@ -97,8 +102,9 @@ Live-sync return:
 - Rendered-output pass-4 bundle: `qa/lpf-rendered-output/factoria-order3-return-pass4/`.
 - Rendered-output pass-5 bundle: `qa/lpf-rendered-output/factoria-order3-return-pass5/`.
 - Rendered-output live-sync bundle: `qa/lpf-rendered-output/factoria-live-sync-release/`.
+- Rendered-output public live-sync bundle: `qa/lpf-rendered-output/factoria-live-sync-public/`.
 - Visual-diff bundle: `qa/lpf-visual-fidelity/factoria/`.
 
 ## Current State
 
-Fifth local repair pass is applied and browser-visible. The owner-returned logo-strip and testimonial behavior defects are locally fixed and proven, and the mobile/tablet header mode now matches the source responsive white-header structure. Release-sync ticket is now active because the local repair had not been committed/pushed, leaving the Cloudflare demo stale. Product commit/push/public verification is required next. Mobile/tablet automated visual-diff still fails and remains a separate source-fidelity blocker after the stale-live-demo sync is fixed.
+Fifth repair pass is committed, pushed, deployed, and public-browser-visible. The owner-returned logo-strip and testimonial behavior defects are fixed on the canonical Cloudflare demo, and the product repo is clean on `main`/`origin/main`. Mobile/tablet automated visual-diff still fails and remains the next source-fidelity blocker before owner acceptance.
