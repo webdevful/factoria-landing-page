@@ -701,7 +701,7 @@ const blogItems = [
       new Swiper('.testimonials-carousel', {
         slidesPerView: 1,
         loop: false,
-        rewind: true,
+        rewind: false,
         speed: 700,
         autoplay: { delay: 5000, disableOnInteraction: true },
         navigation: { nextEl: '.testimonial-next', prevEl: '.testimonial-prev' },
@@ -2569,6 +2569,23 @@ const blogItems = [
         color: var(--yellow);
       }
 
+      .testimonial-prev i,
+      .testimonial-next i {
+        font-family: "Font Awesome 7 Free";
+        font-size: 24px;
+        font-weight: 900;
+        line-height: 1;
+        width: 1em;
+      }
+
+      .testimonial-prev.swiper-button-disabled,
+      .testimonial-next.swiper-button-disabled {
+        color: var(--ink);
+        cursor: default;
+        opacity: 0.5;
+        pointer-events: none;
+      }
+
       .testimonial-prev::after,
       .testimonial-next::after {
         display: none !important;
@@ -3121,12 +3138,6 @@ const blogItems = [
           border-top: 2px solid var(--yellow);
           padding-left: 0;
           padding-top: 28px;
-        }
-
-        .testimonial-box::after {
-          left: 0;
-          top: 6px;
-          font-size: 74px;
         }
 
         .testimonial-item p {

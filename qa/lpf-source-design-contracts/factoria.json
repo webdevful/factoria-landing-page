@@ -9,7 +9,8 @@
     "The red divider is a source-wide section-title system for repeated centered section headings including Work Process, Portfolio, Team Members, and Blog; it is not a Team-only exception.",
     "The Fatory Team Members hover does not snap to a fast full-card blackout; member info fades with slower ease-in-out timing while the overlay text slides upward over the darkened image.",
     "The Fatory testimonials section places the faint quote ornament on the left/title-side wrapper pseudo-element `.testimonial-items::after`; it is not rendered behind the right testimonial text.",
-    "The Fatory testimonial carousel nav icons use source-compatible Font Awesome angle markup: `fa fa-angle-left` and `fa fa-angle-right`."
+    "The Fatory testimonial carousel nav icons use source-compatible Font Awesome angle markup: `fa fa-angle-left` and `fa fa-angle-right`.",
+    "The Fatory testimonial carousel is finite (`loop: false`) and Owl's disabled nav control is visibly dimmed at the boundary; the first slide must show the previous control as disabled instead of two equally active black arrows."
   ],
   "checks": [
     {
@@ -136,6 +137,40 @@
         "font-size": "100px",
         "opacity": "0.07"
       }
+    },
+    {
+      "selector": ".testimonial-prev i",
+      "declarations": {
+        "font-family": "\"Font Awesome 7 Free\"",
+        "font-size": "24px",
+        "font-weight": "900",
+        "line-height": "1"
+      }
+    },
+    {
+      "selector": ".testimonial-next i",
+      "declarations": {
+        "font-family": "\"Font Awesome 7 Free\"",
+        "font-size": "24px",
+        "font-weight": "900",
+        "line-height": "1"
+      }
+    },
+    {
+      "selector": ".testimonial-prev.swiper-button-disabled",
+      "declarations": {
+        "cursor": "default",
+        "opacity": "0.5",
+        "pointer-events": "none"
+      }
+    },
+    {
+      "selector": ".testimonial-next.swiper-button-disabled",
+      "declarations": {
+        "cursor": "default",
+        "opacity": "0.5",
+        "pointer-events": "none"
+      }
     }
   ],
   "forbidden": [
@@ -173,6 +208,18 @@
       "selector": ".testimonial-box::after",
       "declarations": {
         "content": "\"\\f10d\""
+      }
+    },
+    {
+      "selector": ".testimonial-prev.swiper-button-disabled",
+      "declarations": {
+        "opacity": "1"
+      }
+    },
+    {
+      "selector": ".testimonial-next.swiper-button-disabled",
+      "declarations": {
+        "opacity": "1"
       }
     }
   ],
@@ -231,7 +278,18 @@
     },
     {
       "path": "src/pages/index.astro",
+      "contains": "rewind: false"
+    },
+    {
+      "path": "src/pages/index.astro",
+      "contains": ".testimonial-prev.swiper-button-disabled"
+    },
+    {
+      "path": "src/pages/index.astro",
       "contains": ".testimonial-items-wrap::after"
     }
+  ],
+  "forbiddenSourceRefs": [
+    "new Swiper('.testimonials-carousel', {\n        slidesPerView: 1,\n        loop: false,\n        rewind: true"
   ]
 }

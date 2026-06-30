@@ -248,3 +248,31 @@ Validation:
 - Public browser proof on `https://factoria-landing-page.pages.dev/`: PASS. Quote pseudo-element remains on the left wrapper, old right-box quote is removed, controls use `fa fa-angle-left/right`, and next/previous controls changed active reviewer `Jones Adhor -> Mones Basel -> Jones Adhor`.
 - Public root `npm run qa:lpf-rendered-output -- --url https://factoria-landing-page.pages.dev/ --output-dir qa/lpf-rendered-output/factoria-testimonial-icons-quote-public --expect-visible-text Factoria --forbid-placeholder`: PASS.
 - Public root `npm run qa:lpf-funnel-sync -- --slug factoria ...`: PASS, MAE `5.82`, RMS `27.70`.
+
+## Testimonial Slider Icon State Return
+
+Owner returned Factoria again on 2026-06-30 because the testimonial slider icons still looked broken in the provided screenshot: the first-slide previous and next arrows both rendered as active black glyphs instead of showing the source finite-carousel boundary state.
+
+Source facts:
+
+- Source Fatory testimonial slider is finite (`loop: false` in the Owl config); it does not force rewind behavior for the testimonial carousel.
+- Source Owl controls dim disabled boundary navigation through `.owl-theme .owl-nav .disabled { opacity: .5; cursor: default; }`.
+- Source testimonial controls remain transparent, left-aligned, 24px Font Awesome angle icons with `fa fa-angle-left` and `fa fa-angle-right`.
+
+Changes applied:
+
+- Changed the testimonial Swiper configuration from `rewind: true` to `rewind: false` so Swiper applies boundary-disabled states.
+- Added explicit testimonial disabled-state CSS for `.testimonial-prev.swiper-button-disabled` and `.testimonial-next.swiper-button-disabled`: `opacity: 0.5`, `cursor: default`, and `pointer-events: none`.
+- Locked the testimonial icon glyphs to `Font Awesome 7 Free`, `24px`, and `900` weight so the source-compatible `fa fa-angle-left/right` classes render cleanly in the current Font Awesome package.
+- Removed the stale mobile `.testimonial-box::after` override that remained after the quote ornament moved to `.testimonial-items-wrap::after`.
+- Expanded `qa/lpf-source-design-contracts/factoria.json` so the self-improving loop checks the visible disabled-state styling and forbids the old testimonial rewind state.
+
+Validation:
+
+- Root `npm run factory:lpf:stopline`: PASS. Factoria remains a page rebuild candidate by total repair-ticket count, but no stopline threshold blocked this bounded testimonial repair.
+- Root `npm run qa:lpf-memory-loop -- --ticket docs/factory-orders/2026-06-30-lpf-repair-factoria-testimonial-slider-icon-state.md`: PASS. STAMP MLP ticket=2026-06-30-lpf-repair-factoria-testimonial-slider-icon-state lane=LPF at=2026-06-30 digest=172a7d6a.
+- Root `npm run qa:lpf-dispatch-preflight -- --ticket docs/factory-orders/2026-06-30-lpf-repair-factoria-testimonial-slider-icon-state.md`: PASS. STAMP DPP ticket=2026-06-30-lpf-repair-factoria-testimonial-slider-icon-state lane=LPF at=2026-06-30 digest=e466746a.
+- Product `npm run build`: PASS.
+- Product `npm run design:lint`: PASS with existing no-YAML warning.
+- Product source-design contract: PASS.
+- Local browser proof on `http://127.0.0.1:4381/`: PASS. Initial slide `Jones Adhor` shows `.testimonial-prev.swiper-button-disabled` at opacity `0.5` and active `.testimonial-next` at opacity `1`; clicking next changes to `Mones Basel` and disables the next control; clicking previous returns to `Jones Adhor`. Screenshot: `/tmp/factoria-testimonial-icon-state-local.png`.
