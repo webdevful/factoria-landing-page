@@ -3178,6 +3178,32 @@ const blogItems = [
           justify-content: center;
         }
       }
+
+      @media (min-width: 768px) and (max-width: 1024px) {
+        .process-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .blog-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .portfolio-area {
+          background-color: var(--white);
+        }
+
+        .portfolio-area .section-header h2 {
+          color: var(--ink);
+        }
+
+        .portfolio-area .section-desc {
+          color: var(--ink-soft);
+        }
+
+        .work-process-area .process-item.item {
+          padding: 42px 34px;
+        }
+      }
     </style>
   </body>
 </html>

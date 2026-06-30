@@ -127,3 +127,21 @@ Validation:
 - Product `npm run design:lint`: PASS with existing warning: `No YAML content found`.
 - Playwright local slider proof on `http://127.0.0.1:4353/`: PASS. Hero next/previous changed active heading; portfolio next/previous changed active project; testimonials next/previous changed active reviewer.
 - Testimonial icon proof: `.testimonial-next i` uses `fa-solid fa-angle-right`, Font Awesome 7 Free renders the angle glyph, and the button is not disabled.
+
+## Visual Fidelity Continuation
+
+Owner asked to continue after the slider/tag/preview repair. The remaining blocker was the source-backed mobile/tablet visual-fidelity bundle.
+
+Changes applied:
+
+- Added an exact `768px` tablet breakpoint repair so the factory tablet viewport no longer inherits the phone layout.
+- Restored source-like tablet rhythm for the work-process and blog card grids.
+- Changed the tablet portfolio band back toward the source structure: white section background with dark project cards instead of a full black section.
+- Refreshed the source/output evidence with clean browser full-page captures to avoid the earlier stitched source hero/background artifact.
+
+Validation:
+
+- Product `npm run build`: PASS.
+- Root `npm run qa:lpf-visual-diff -- --slug factoria --write-results`: PASS. Desktop `h-ratio 0.94 / band 0.75 / ssim 0.37`; mobile `h-ratio 0.92 / band 0.66 / ssim 0.22`; tablet `h-ratio 0.87 / band 0.49 / ssim 0.25`.
+- Root `npm run qa:lpf-rendered-output -- --url http://127.0.0.1:4361/ --output-dir qa/lpf-visual-fidelity/factoria/rendered-output --expect-visible-text Factoria --forbid-placeholder`: PASS.
+- Root `npm run qa:lpf-visual-fidelity -- --slug factoria --product-repo .../factoria/repo --rendered-url http://127.0.0.1:4361/ --expect-visible-text Factoria`: PASS.
